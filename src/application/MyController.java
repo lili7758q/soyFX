@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /** 
 * @author Soy 
@@ -20,10 +22,15 @@ import javafx.scene.control.TextField;
 public class MyController implements Initializable {
 
    @FXML
-   private Button myButton;
+   private Button bt1;
+   @FXML
+   private Button bt2;
 
    @FXML
    private TextField myTextField;
+ 
+   @FXML
+   private AnchorPane rightPane;
 
    @Override
    public void initialize(URL location, ResourceBundle resources) {
@@ -34,16 +41,13 @@ public class MyController implements Initializable {
 
    // When user click on myButton
    // this method will be called.
-   public void showDateTime(ActionEvent event) {
-       System.out.println("Button Clicked!");
-
-       Date now= new Date();
-
-       DateFormat df = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
-       String dateTimeString = df.format(now);
-        // Show in VIEW
-        myTextField.setText(dateTimeString);
-
+   public void action1(ActionEvent event) {
+	   System.out.println("action1");
+   }
+   
+   public void action2(ActionEvent event) {
+	   System.out.println("action2");
+       rightPane.setBorder(null);
    }
 
 }
