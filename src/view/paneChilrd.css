@@ -1,8 +1,32 @@
-
-#test11 {
-
+.background-white {
+	-fx-background-color: #FFF;
 }
 
-.class1 {
-	-fx-background-color: #fff;
+.text-see {
+	-fx-font-size: 22px;
+	-fx-font-weight:bold;
+}
+
+.text-pane1 {
+	-fx-font-size:30px;
+}
+
+.border-set {
+	-fx-border-color:#FFF;
+}
+
+.buttonMy {
+	-fx-text-fill: #006464;   
+	-fx-background-color: #FFFF6F;
+    -fx-border-radius: 20;  
+    -fx-background-radius: 0;  
+    -fx-padding: 0; 
+    -fx-cursor:hand;
+}
+.buttonMy:hover {
+	-fx-text-fill: red;  
+}
+
+.selectValue:hover{
+	-fx-cursor:hand;
 }
