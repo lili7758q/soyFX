@@ -27,6 +27,7 @@
 	-fx-text-fill: red;  
 }
 
-.selectValue:hover{
+.bottonHand:hover{
 	-fx-cursor:hand;
+	-fx-text-fill: red; 
 }
