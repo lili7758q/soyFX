@@ -150,6 +150,11 @@ public class MyController implements Initializable {
 	   th.start();
    }
 
+   //使用
+   public void bagUse(ActionEvent event){
+	   Res res = (Res)bagTable.getSelectionModel().getSelectedItem();
+	   System.out.println(res.toString());
+   }
    
    // 功能界面切换
    public void actionChange1(ActionEvent event) {

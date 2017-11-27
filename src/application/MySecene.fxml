@@ -140,7 +140,7 @@
                                             </TableView>
                                             <Button fx:id="refreshBag" layoutX="400.0" layoutY="222.0" mnemonicParsing="false" onAction="#refreshBag" prefHeight="26.0" prefWidth="66.0" text="刷新" />
                                             <Button fx:id="buttonSort" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#sortBag" prefHeight="26.0" prefWidth="66.0" text="整理" />
-                                            <Button id="" layoutX="158.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="使用" />
+                                            <Button id="" fx:id="bagUse" layoutX="158.0" layoutY="222.0" mnemonicParsing="false" onAction="#bagUse" prefHeight="26.0" prefWidth="66.0" text="使用" />
                                             <Button id="" layoutX="240.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="入仓" />
                                             <TextField layoutX="68.0" layoutY="222.0" prefHeight="26.0" prefWidth="78.0" />
                                             <TextField editable="false" layoutX="7.0" layoutY="222.0" prefHeight="26.0" prefWidth="61.0" styleClass="border-set, background-white, test-center" text="数量:" />

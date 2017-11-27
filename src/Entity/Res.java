@@ -48,8 +48,10 @@ public class Res {
 
 	@Override
 	public String toString() {
-		return "Res [id=" + id + ", name=" + name + ", num=" + num + "]";
+		return "Res [id:" + id.get() + ", name:" + name.get() + ", num:" + num.get() + ", bagSort:" + bagSort.get() + "]";
 	}
+
+	
 	
 
 }
