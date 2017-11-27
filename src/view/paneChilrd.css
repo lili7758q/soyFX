@@ -31,3 +31,7 @@
 	-fx-cursor:hand;
 	-fx-text-fill: red; 
 }
+
+.test-center {
+	-fx-alignment: CENTER;
+}

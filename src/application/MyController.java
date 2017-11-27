@@ -100,7 +100,7 @@ public class MyController implements Initializable {
    @FXML
    private TableColumn bagName;
    @FXML
-   private TableColumn bagType;
+   private TableColumn bagSort;
    @FXML
    private TableColumn bagNum;
    
@@ -113,13 +113,14 @@ public class MyController implements Initializable {
 	   showText.setEditable(false);//右侧显示栏不可编辑
 	   setUser();//设置已保存的用户
 	   List<Res> list = new ArrayList<Res>();
-	   list.add(new Res("1","进化之书","123"));
-	   list.add(new Res("2","高级进化之书","124"));
-	   list.add(new Res("3","超级进化之书","125"));
+	   list.add(new Res("1","进化之书","123","j"));
+	   list.add(new Res("2","高级进化之书","124","j"));
+	   list.add(new Res("3","超级进化之书","125","j"));
 	   
 	   bagId.setCellValueFactory(new PropertyValueFactory<>("id"));
 	   bagName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	   bagNum.setCellValueFactory(new PropertyValueFactory<>("num"));
+	   bagSort.setCellValueFactory(new PropertyValueFactory<>("bagSort"));
 	   
 	   bagTable.setItems(FXCollections.observableArrayList(list));
 
@@ -134,9 +135,17 @@ public class MyController implements Initializable {
 	   Thread th = new Thread(login);
 	   th.start();  
    }
-   
+   //刷新背包
    public void refreshBag(ActionEvent event) throws Exception{
 	   GetBag getBag = new GetBag(util,bagTable);
+	   Thread th = new Thread(getBag);
+	   th.start();
+   }
+   
+   //整理背包
+   public void sortBag(ActionEvent event){
+	   GetBag getBag = new GetBag(util,bagTable);
+	   getBag.setSort(true);
 	   Thread th = new Thread(getBag);
 	   th.start();
    }

@@ -11,11 +11,13 @@ public class Res {
 	private final SimpleStringProperty id;
 	private final SimpleStringProperty name;
 	private final SimpleStringProperty num;
+	private final SimpleStringProperty bagSort;
 	
-	public Res(String id,String name,String num){
+	public Res(String id,String name,String num,String bagSort ){
 		this.id = new SimpleStringProperty(id);
 		this.name = new SimpleStringProperty(name);
 		this.num = new SimpleStringProperty(num);
+		this.bagSort = new SimpleStringProperty(bagSort);
 	}
 	
 	public String getId(){
@@ -27,7 +29,13 @@ public class Res {
 	public String getNum(){
 		return num.get();
 	}
+	public String getBagSort(){
+		return bagSort.get();
+	}
 	
+	public void setBagSort (String bagSort){
+		this.bagSort.set(bagSort);
+	}
 	public void setId (String id){
 		this.id.set(id);
 	}

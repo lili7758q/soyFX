@@ -93,4 +93,7 @@ public class Const {
 
 	public static final String NUM_LEFT ="class=\"p4\">";
 	public static final String NUM_RIGHT ="</p>";
+	
+	public static final String SORT_LEFT ="class=\"p3\">";
+	public static final String SORT_RIGHT ="</p>";
 }

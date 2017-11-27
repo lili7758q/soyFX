@@ -20,16 +20,25 @@ import soyUtils.SoyUtils;
 public class GetBag extends Task{
 	private IntUtil util;
 	private TableView bagTable;
+	private boolean isSort = false;
 	
 	public GetBag (IntUtil util ,TableView bagTable){
 		this.util = util;
 		this.bagTable = bagTable;
 	}
+	
+	public void setSort(boolean isSort){
+		this.isSort = isSort;
+	}
 
 	@Override
 	protected Object call() throws Exception {
 		util.showText("刷新背包中...");
-		Map retMap = util.get("function/getBag.php?style=1");
+		String toUrl = "function/getBag.php?style=1";
+		if(isSort){
+			toUrl = "function/getBag.php?clean=1&style=1";
+		}
+		Map retMap = util.get(toUrl);
 		if((int)retMap.get("code") != 200){
 			util.showText("刷新背包失败！");
 		}else{
@@ -41,7 +50,8 @@ public class GetBag extends Task{
 				String id = ut.getTag(Const.ID_LEFT, Const.ID_RIGHT, t);
 				String name = ut.getTag(Const.NAME_LEFT, Const.NAME_RIGHT, t) ;
 				String num = ut.getTag(Const.NUM_LEFT, Const.NUM_RIGHT, t);
-				listBag.add(new Res(id,name,num));
+				String bagSort = ut.getTag(Const.SORT_LEFT, Const.SORT_RIGHT, t);
+				listBag.add(new Res(id,name,num,bagSort));
 			}
 			bagTable.setItems(FXCollections.observableArrayList(listBag));
 		}

@@ -45,7 +45,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                           <children>
-                            <Button fx:id="btMain3" mnemonicParsing="false" onAction="#actionChange3" styleClass="buttonMy" text="背包/牧场/任务/魔法" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <Button fx:id="btMain3" mnemonicParsing="false" onAction="#actionChange3" styleClass="buttonMy" text="背仓/拍卖/牧场" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <stylesheets>
                                 <URL value="@../view/paneChilrd.css" />
                               </stylesheets>
@@ -54,7 +54,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                           <children>
-                            <Button fx:id="btMain4" mnemonicParsing="false" onAction="#actionChange4" styleClass="buttonMy" text="地图打怪" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <Button fx:id="btMain4" mnemonicParsing="false" onAction="#actionChange4" styleClass="buttonMy" text="挂图/副本/TT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <stylesheets>
                                 <URL value="@../view/paneChilrd.css" />
                               </stylesheets>
@@ -63,7 +63,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                           <children>
-                            <Button fx:id="btMain5" mnemonicParsing="false" onAction="#actionChange5" styleClass="buttonMy" text="通天塔" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            <Button fx:id="btMain5" mnemonicParsing="false" onAction="#actionChange5" styleClass="buttonMy" text="任务/魔法" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                           </children>
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -94,48 +94,20 @@
                       <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                           <children>
-                            <Pane id="" fx:id="rightPane4" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
-                            </Pane>
-                            <Pane id="" fx:id="rightPane5" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
-                            </Pane>
-                            <Pane id="" fx:id="rightPane6" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
-                            </Pane>
-                            <Pane id="" fx:id="rightPane7" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
-                            </Pane>
-                            <Pane id="" fx:id="rightPane8" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
-                            </Pane>
+                            <Pane id="" fx:id="rightPane4" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            <Pane id="" fx:id="rightPane5" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            <Pane id="" fx:id="rightPane6" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            <Pane id="" fx:id="rightPane7" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            <Pane id="" fx:id="rightPane8" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                             <Pane id="" fx:id="rightPane2" prefHeight="678.0" prefWidth="859.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <children>
-                                <TextField editable="false" layoutX="69.0" layoutY="14.0" prefHeight="36.5" prefWidth="155.0" styleClass="text-see, border-set, background-white" text="已保存账号:">
-                                  <stylesheets>
-                                    <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                                  </stylesheets>
-                                </TextField>
+                                <TextField editable="false" layoutX="69.0" layoutY="14.0" prefHeight="36.5" prefWidth="155.0" styleClass="text-see, border-set, background-white" text="已保存账号:" />
                                 <ComboBox fx:id="comboBoxUser" layoutX="224.0" layoutY="15.0" prefHeight="34.0" prefWidth="179.0" />
                                 <TextField layoutX="83.0" layoutY="218.0" prefHeight="32.9404296875" prefWidth="86.000244140625" styleClass="border-set, background-white, text-see" text="账号:" />
                                 <TextField id="f1" layoutX="165.0" layoutY="221.0" prefHeight="35.9" prefWidth="200.0" />
                                 <TextField layoutX="83.0" layoutY="275.0" prefHeight="32.9404296875" prefWidth="86.000244140625" styleClass="border-set, background-white, text-see" text="密码:" />
                                 <PasswordField layoutX="165.0" layoutY="275.0" prefHeight="35.9" prefWidth="200.0" />
-                                <TextField editable="false" layoutX="90.0" layoutY="94.0" prefHeight="36.5" prefWidth="125.0" styleClass="text-see, border-set, background-white" text="选择区服:">
-                                  <stylesheets>
-                                    <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                                  </stylesheets>
-                                </TextField>
+                                <TextField editable="false" layoutX="90.0" layoutY="94.0" prefHeight="36.5" prefWidth="125.0" styleClass="text-see, border-set, background-white" text="选择区服:" />
                                 <ComboBox id="comboBoxUser" layoutX="227.0" layoutY="95.0" prefHeight="34.0" prefWidth="179.0" />
                                 <Button id="loginButton" defaultButton="true" layoutX="215.0" layoutY="332.0" mnemonicParsing="false" onAction="#Login" prefHeight="35.0001220703125" prefWidth="101.0" styleClass="bottonHand" text="登 陆" textAlignment="CENTER" textOverrun="CLIP" underline="false">
                                   <font>
@@ -144,36 +116,41 @@
                                 </Button>
                                 <AnchorPane layoutX="0.0" layoutY="0.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
                               </children>
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
                             </Pane>
                             <Pane id="" fx:id="rightPane1" prefHeight="678.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <children>
                                 <TextArea id="" editable="false" layoutX="2.0" layoutY="0.0" prefHeight="678.0" prefWidth="477.0" style="" styleClass="text-pane1" text="1.烂表是猪&#10;1.烂表是猪&#10;1.烂表是猪" wrapText="true" />
                               </children>
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
                             </Pane>
                             <Pane id="" fx:id="rightPane3" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <children>
                                 <TabPane layoutX="0.0" layoutY="0.0" prefHeight="680.0" prefWidth="480.0" tabClosingPolicy="UNAVAILABLE">
                                   <tabs>
-                                    <Tab text="背包">
+                                    <Tab text="背仓">
                                       <content>
                                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="480.0">
                                           <children>
-                                            <TableView fx:id="bagTable" layoutY="0.0" prefHeight="214.0" prefWidth="355.0000999999975" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="125.0">
+                                            <TableView fx:id="bagTable" layoutY="0.0" prefHeight="214.0" prefWidth="355.0000999999975" styleClass="test-center" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                               <columns>
-                                                <TableColumn prefWidth="117.0" text="ID" fx:id="bagId" />
-                                                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="118.0" text="名称" fx:id="bagName" />
-                                                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="118.0" text="数量" fx:id="bagNum" />
+                                                <TableColumn id="bagId" prefWidth="120.0" styleClass="test-center" text="ID" fx:id="bagId" />
+                                                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="名称" fx:id="bagName" />
+                                                <TableColumn id="bagSort" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="类别" fx:id="bagSort" />
+                                                <TableColumn id="bagNum" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="数量" fx:id="bagNum" />
                                               </columns>
                                             </TableView>
-                                            <Button fx:id="refreshBag" layoutX="379.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshBag" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <Button fx:id="refreshBag" layoutX="400.0" layoutY="222.0" mnemonicParsing="false" onAction="#refreshBag" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <Button fx:id="buttonSort" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#sortBag" prefHeight="26.0" prefWidth="66.0" text="整理" />
+                                            <Button id="" layoutX="158.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="使用" />
+                                            <Button id="" layoutX="240.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="入仓" />
+                                            <TextField layoutX="68.0" layoutY="222.0" prefHeight="26.0" prefWidth="78.0" />
+                                            <TextField editable="false" layoutX="7.0" layoutY="222.0" prefHeight="26.0" prefWidth="61.0" styleClass="border-set, background-white, test-center" text="数量:" />
                                           </children>
                                         </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="拍卖">
+                                      <content>
+                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                       </content>
                                     </Tab>
                                     <Tab text="牧场">
@@ -184,9 +161,6 @@
                                   </tabs>
                                 </TabPane>
                               </children>
-                              <stylesheets>
-                                <URL value="file:/F:/SOYWORK/HelloFX/src/view/paneChilrd.css" />
-                              </stylesheets>
                             </Pane>
                           </children>
                         </AnchorPane>
