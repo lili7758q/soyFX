@@ -1,7 +1,9 @@
 package soyUtils;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +38,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
+import javafx.scene.control.TextArea;
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 
 /** 
@@ -51,12 +55,14 @@ public class IntUtil {
 	static HttpClientContext context = null;
 	static CloseableHttpClient client;
 	static Logger log = Logger.getLogger(IntUtil.class);
+	TextArea showText;
 	
 	
-	public IntUtil (String urlMain,String charset){
+	public IntUtil (String urlMain,String charset,TextArea showText){
 		this.client = HttpClients.createDefault();
 		this.UMAIN = urlMain;
 		this.CHARSET = charset;
+		this.showText = showText;
 	}
 	
 	/** 
@@ -71,19 +77,15 @@ public class IntUtil {
 		
         UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paraList,CHARSET);
         HttpPost post = new HttpPost(UMAIN+url);  
-//        post.setEntity(entity);
-//        HttpResponse response = client.execute(post);
-//		int code = response.getStatusLine().getStatusCode();
-//		String body = EntityUtils.toString(response.getEntity(),CHARSET);
-//		log.info("Method post() -- " + UMAIN+url);
-//		log.info("code: "+ code);
-//		map.put("code", code);
-//		map.put("body",body );
-//		post.releaseConnection();
-        Callable c = new SoyPost(client,post,CHARSET);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        Future <Map> ret = executorService.submit(c);
-        map = ret.get();
+        post.setEntity(entity);
+        HttpResponse response = client.execute(post);
+		int code = response.getStatusLine().getStatusCode();
+		String body = EntityUtils.toString(response.getEntity(),CHARSET);
+		log.info("Method post() -- " + UMAIN+url);
+		log.info("code: "+ code);
+		map.put("code", code);
+		map.put("body",body );
+		post.releaseConnection();
 		return map;
 		
 	}
@@ -96,18 +98,18 @@ public class IntUtil {
 	public Map get (String url) throws Exception {
 		Map map = new HashMap();
 		HttpGet get = new HttpGet(UMAIN+url);
-//		HttpResponse response = client.execute(get);
-//		int code = response.getStatusLine().getStatusCode();
-//		String body = EntityUtils.toString(response.getEntity(),CHARSET);
-//		log.info("Method get() -- " + UMAIN+url);
-//		log.info("code: "+ code);
-//		map.put("code", code);
-//		map.put("body",body );
-//		get.releaseConnection();
-		Callable c = new SoyGet(client,get,CHARSET);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        Future <Map> ret = executorService.submit(c);
-        map = ret.get();
+		HttpResponse response = client.execute(get);
+		int code = response.getStatusLine().getStatusCode();
+		String body = EntityUtils.toString(response.getEntity(),CHARSET);
+		log.info("Method get() -- " + UMAIN+url);
+		log.info("code: "+ code);
+		map.put("code", code);
+		map.put("body",body );
+		get.releaseConnection();
+//		Callable c = new SoyGet(client,get,CHARSET);
+//        ExecutorService executorService = Executors.newCachedThreadPool();
+//        Future <Map> ret = executorService.submit(c);
+//        map = ret.get();
 		return map;
 	}
 	
@@ -244,6 +246,11 @@ public class IntUtil {
 		  }
 	  }
 	
-	  
+	  public void showText(String text){
+		  log.error(text);
+		  SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		  showText.appendText("["+format.format(new Date())+"]" + " - "+text);
+		  showText.appendText("\n");
+	  }
 	
 }

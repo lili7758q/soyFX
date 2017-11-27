@@ -80,4 +80,17 @@ public class Const {
 	public static final String pids_1221 = "1221";//ÓñÂ¶
 	public static final String pids_1222 = "1222";//ÌìÏÉÓñÂ¶
 	
+	/*·Ö¸î*/
+	//bag
+	public static final String BAG_LEFT = "<li><a >";
+	public static final String BAG_RIGHT = "</a></li>";
+	
+	public static final String ID_LEFT = "id=\"t";
+	public static final String ID_RIGHT = "\" onmouseover";
+	
+	public static final String NAME_LEFT = "copyWorda(\'";
+	public static final String NAME_RIGHT = "');\" style";
+
+	public static final String NUM_LEFT ="class=\"p4\">";
+	public static final String NUM_RIGHT ="</p>";
 }
