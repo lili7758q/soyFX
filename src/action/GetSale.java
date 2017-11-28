@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import Entity.ResSale;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.scene.control.TableView;
@@ -54,7 +55,12 @@ public class GetSale extends Task{
 				String num = ut.getTag(Const.SALENUM_LEFT, Const.SALENUM_RIGHT, m);
 				resSale.add(new ResSale(id,name,num,price));
 			}
-			table.setItems(FXCollections.observableArrayList(resSale));
+			Platform.runLater(new Runnable() {
+			    @Override
+			    public void run() {
+					table.setItems(FXCollections.observableArrayList(resSale));
+			    }
+			});
 			util.showText("Ë¢ÐÂÍê³É£¡");
 		}
 		return null;

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import Entity.Res;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.scene.control.TableView;
@@ -53,7 +54,13 @@ public class GetBag extends Task{
 				String bagSort = ut.getTag(Const.SORT_LEFT, Const.SORT_RIGHT, t);
 				listBag.add(new Res(id,name,num,bagSort));
 			}
-			bagTable.setItems(FXCollections.observableArrayList(listBag));
+			Platform.runLater(new Runnable() {
+			    @Override
+			    public void run() {
+			    	bagTable.setItems(FXCollections.observableArrayList(listBag));
+			    }
+			});
+			
 		}
 		util.showText("Ë¢ÐÂÍê³É£¡");
 		return null;

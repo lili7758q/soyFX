@@ -38,6 +38,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -249,10 +250,19 @@ public class IntUtil {
 	  }
 	
 	  public void showText(String text){
-		  log.error(text);
-		  SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		  //奇怪，单独append个换行符可能会报属java.lang.NullPointerException?
-		  showText.appendText("["+format.format(new Date())+"]" + " - "+text+"\n");
+		  Platform.runLater(new Runnable() {
+			    @Override
+			    public void run() {
+			    	if(showText.getText().length()>3000){
+						  showText.clear();
+					  }
+					  log.error(text);
+					  SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					  //奇怪，单独append个换行符可能会报属java.lang.NullPointerException?
+					  showText.appendText("["+format.format(new Date())+"]" + " - "+text+"\n");
+			    }
+			});
+		  
 	  }
 	
 }

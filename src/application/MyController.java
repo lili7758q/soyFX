@@ -37,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -47,6 +48,7 @@ import soyUtils.SoyPost;
 import action.GetBag;
 import action.GetSale;
 import action.Login;
+import action.UseBag;
 
 /** 
 * @author Soy 
@@ -57,6 +59,7 @@ public class MyController implements Initializable {
 	static Logger log = Logger.getLogger(MyController.class);
 	static String charset = Const.GB2321;
 	static IntUtil util;
+	static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3); 
 
    @FXML
    private Pane rightPane1;
@@ -91,9 +94,13 @@ public class MyController implements Initializable {
    private Button btMain7;
    @FXML
    private Button btMain8;
+   @FXML
+   private Button bagUse;
    
    @FXML
    private TextArea showText;
+   @FXML
+   private TextField bagUseNum;
    
    @FXML
    private TableView bagTable;
@@ -124,15 +131,15 @@ public class MyController implements Initializable {
    public void initialize(URL location, ResourceBundle resources) {
 	   showText.setEditable(false);//右侧显示栏不可编辑
 	   setUser();//设置已保存的用户
+	   //背包
 	   List<Res> list = new ArrayList<Res>();
 	   list.add(new Res(" "," "," "," "));
-	   
 	   bagId.setCellValueFactory(new PropertyValueFactory<>("id"));
 	   bagName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	   bagNum.setCellValueFactory(new PropertyValueFactory<>("num"));
 	   bagSort.setCellValueFactory(new PropertyValueFactory<>("bagSort"));
 	   bagTable.setItems(FXCollections.observableArrayList(list));
-	   
+	   //交易所
 	   saleId.setCellValueFactory(new PropertyValueFactory<>("id"));
 	   saleName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	   saleNum.setCellValueFactory(new PropertyValueFactory<>("num"));
@@ -140,8 +147,10 @@ public class MyController implements Initializable {
 	   List<ResSale> resSale = new ArrayList<ResSale>();
 	   resSale.add(new ResSale(" "," "," "," "));
 	   tableSale.setItems(FXCollections.observableArrayList(resSale));
-
-		
+	   //提示条
+	   Tooltip ts = new Tooltip();
+	   ts.setText("不填数量默认全部使用哟~");
+	   bagUse.setTooltip(ts);
    }
    
    //登陆
@@ -170,7 +179,18 @@ public class MyController implements Initializable {
    //使用
    public void bagUse(ActionEvent event){
 	   Res res = (Res)bagTable.getSelectionModel().getSelectedItem();
-	   System.out.println(res.toString());
+	   String num = bagUseNum.getText();
+	   num.replace(" ", "");
+	   if(res == null){
+		   util.showText("请先选择物品！");
+	   }else{
+		   if(num == null ||num.equals("")){
+			   num = res.getNum();
+		   }
+		   for (int i =0;i<Integer.valueOf(num);i++) {
+			   fixedThreadPool.execute(new UseBag(res,util));
+		   }
+	   }
    }
    
    //刷新拍卖
