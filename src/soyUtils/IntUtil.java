@@ -64,7 +64,9 @@ public class IntUtil {
 		this.CHARSET = charset;
 		this.showText = showText;
 	}
-	
+	public void setCharset (String charset){
+		this.CHARSET = charset;
+	}
 	/** 
 	* @author Soy 
 	* @date 2017年11月16日 下午7:06:02 
@@ -249,8 +251,8 @@ public class IntUtil {
 	  public void showText(String text){
 		  log.error(text);
 		  SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		  showText.appendText("["+format.format(new Date())+"]" + " - "+text);
-		  showText.appendText("\n");
+		  //奇怪，单独append个换行符可能会报属java.lang.NullPointerException?
+		  showText.appendText("["+format.format(new Date())+"]" + " - "+text+"\n");
 	  }
 	
 }

@@ -24,6 +24,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
 import Entity.Res;
+import Entity.ResSale;
 import Entity.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,6 +45,7 @@ import soyUtils.IntUtil;
 import soyUtils.SoyGet;
 import soyUtils.SoyPost;
 import action.GetBag;
+import action.GetSale;
 import action.Login;
 
 /** 
@@ -105,6 +107,16 @@ public class MyController implements Initializable {
    private TableColumn bagNum;
    
    @FXML
+   private TableView tableSale;
+   @FXML
+   private TableColumn saleName;
+   @FXML
+   private TableColumn saleNum;
+   @FXML
+   private TableColumn salePrice;
+   @FXML
+   private TableColumn saleId;
+   @FXML
    private ComboBox comboBoxUser;
    
    //初始化数据
@@ -113,16 +125,21 @@ public class MyController implements Initializable {
 	   showText.setEditable(false);//右侧显示栏不可编辑
 	   setUser();//设置已保存的用户
 	   List<Res> list = new ArrayList<Res>();
-	   list.add(new Res("1","进化之书","123","j"));
-	   list.add(new Res("2","高级进化之书","124","j"));
-	   list.add(new Res("3","超级进化之书","125","j"));
+	   list.add(new Res(" "," "," "," "));
 	   
 	   bagId.setCellValueFactory(new PropertyValueFactory<>("id"));
 	   bagName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	   bagNum.setCellValueFactory(new PropertyValueFactory<>("num"));
 	   bagSort.setCellValueFactory(new PropertyValueFactory<>("bagSort"));
-	   
 	   bagTable.setItems(FXCollections.observableArrayList(list));
+	   
+	   saleId.setCellValueFactory(new PropertyValueFactory<>("id"));
+	   saleName.setCellValueFactory(new PropertyValueFactory<>("name"));
+	   saleNum.setCellValueFactory(new PropertyValueFactory<>("num"));
+	   salePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+	   List<ResSale> resSale = new ArrayList<ResSale>();
+	   resSale.add(new ResSale(" "," "," "," "));
+	   tableSale.setItems(FXCollections.observableArrayList(resSale));
 
 		
    }
@@ -131,7 +148,7 @@ public class MyController implements Initializable {
    public void Login(ActionEvent event) throws Exception{
 	   String urlMain="http://s2.vvqz.com:8089/";
 	   util = new IntUtil(urlMain,charset,showText);
-	   Login login = new Login(util,"hq1234","qazaq");
+	   Login login = new Login(util,"wxdwxd","5291314");
 	   Thread th = new Thread(login);
 	   th.start();  
    }
@@ -154,6 +171,13 @@ public class MyController implements Initializable {
    public void bagUse(ActionEvent event){
 	   Res res = (Res)bagTable.getSelectionModel().getSelectedItem();
 	   System.out.println(res.toString());
+   }
+   
+   //刷新拍卖
+   public void refreshSale (ActionEvent event) {
+	   GetSale get = new GetSale(util,tableSale);
+	   Thread th = new Thread(get);
+	   th.start();
    }
    
    // 功能界面切换

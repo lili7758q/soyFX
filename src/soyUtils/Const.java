@@ -84,16 +84,25 @@ public class Const {
 	//bag
 	public static final String BAG_LEFT = "<li><a >";
 	public static final String BAG_RIGHT = "</a></li>";
-	
 	public static final String ID_LEFT = "id=\"t";
 	public static final String ID_RIGHT = "\" onmouseover";
-	
 	public static final String NAME_LEFT = "copyWorda(\'";
 	public static final String NAME_RIGHT = "');\" style";
-
 	public static final String NUM_LEFT ="class=\"p4\">";
 	public static final String NUM_RIGHT ="</p>";
-	
 	public static final String SORT_LEFT ="class=\"p3\">";
 	public static final String SORT_RIGHT ="</p>";
+	//sale
+	public static final String SALELIST_LEFT = "shoplist\">";
+	public static final String SALELIST_RIGHT = "</table>";
+	public static final String SALE_LEFT = "sel(this);";
+	public static final String SALE_RIGHT = "</td>";
+	public static final String SALEID_LEFT = "bid=";
+	public static final String SALEID_RIGHT = ";";
+	public static final String SALENAME_LEFT = ">";
+	public static final String SALENAME_RIGHT = "(";
+	public static final String SALEPRICE_LEFT = "price=";
+	public static final String SALEPRICE_RIGHT = ";\"";
+	public static final String SALENUM_LEFT = "(";
+	public static final String SALENUM_RIGHT = ")";
 }

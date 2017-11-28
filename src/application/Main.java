@@ -18,7 +18,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass()
                     .getResource("/application/MySecene.fxml"));
 
-            primaryStage.setTitle("My Application");
+            primaryStage.setTitle("ÄÌ¶¹1.0");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
             primaryStage.setResizable(false);

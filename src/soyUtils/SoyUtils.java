@@ -16,13 +16,20 @@ import java.util.List;
 public class SoyUtils {
 	List getTagList = new ArrayList();
 
+	
+	/** 
+	* @author Soy 
+	* @date 2017年11月28日 上午10:54:54 
+	* @description  example: "BAnnnAB"  head=A last=B --> nnnA
+	*/ 
 	public List<String> getTagList (String head,String last,String parse){
 		if((parse.indexOf(head) == -1) || (parse.indexOf(last) == -1)){
 			return this.getTagList;
 		}else{
 			int hd = parse.indexOf(head)+head.length();
+			parse = parse.substring(hd);
 			int ls = parse.indexOf(last);
-			getTagList.add(parse.substring(hd,ls));
+			getTagList.add(parse.substring(0,ls));
 			parse = parse.substring(parse.indexOf(last)+last.length());
 			getTagList (head,last,parse);
 		}
