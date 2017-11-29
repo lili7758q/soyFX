@@ -253,7 +253,7 @@ public class IntUtil {
 		  Platform.runLater(new Runnable() {
 			    @Override
 			    public void run() {
-			    	if(showText.getText().length()>3000){
+			    	if(showText.getText().length()>6000){
 						  showText.clear();
 					  }
 					  log.error(text);

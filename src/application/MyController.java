@@ -45,9 +45,11 @@ import soyUtils.Const;
 import soyUtils.IntUtil;
 import soyUtils.SoyGet;
 import soyUtils.SoyPost;
+import action.BuySale;
 import action.GetBag;
 import action.GetSale;
 import action.Login;
+import action.Test;
 import action.UseBag;
 
 /** 
@@ -96,11 +98,15 @@ public class MyController implements Initializable {
    private Button btMain8;
    @FXML
    private Button bagUse;
+   @FXML
+   private Button buttonSort;
    
    @FXML
    private TextArea showText;
    @FXML
    private TextField bagUseNum;
+   @FXML
+   private TextField textBuyNum;
    
    @FXML
    private TableView bagTable;
@@ -126,31 +132,17 @@ public class MyController implements Initializable {
    @FXML
    private ComboBox comboBoxUser;
    
+   @FXML
+   private Button testButton;
+   
+   Test ts;
    //初始化数据
    @Override
    public void initialize(URL location, ResourceBundle resources) {
 	   showText.setEditable(false);//右侧显示栏不可编辑
 	   setUser();//设置已保存的用户
-	   //背包
-	   List<Res> list = new ArrayList<Res>();
-	   list.add(new Res(" "," "," "," "));
-	   bagId.setCellValueFactory(new PropertyValueFactory<>("id"));
-	   bagName.setCellValueFactory(new PropertyValueFactory<>("name"));
-	   bagNum.setCellValueFactory(new PropertyValueFactory<>("num"));
-	   bagSort.setCellValueFactory(new PropertyValueFactory<>("bagSort"));
-	   bagTable.setItems(FXCollections.observableArrayList(list));
-	   //交易所
-	   saleId.setCellValueFactory(new PropertyValueFactory<>("id"));
-	   saleName.setCellValueFactory(new PropertyValueFactory<>("name"));
-	   saleNum.setCellValueFactory(new PropertyValueFactory<>("num"));
-	   salePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-	   List<ResSale> resSale = new ArrayList<ResSale>();
-	   resSale.add(new ResSale(" "," "," "," "));
-	   tableSale.setItems(FXCollections.observableArrayList(resSale));
-	   //提示条
-	   Tooltip ts = new Tooltip();
-	   ts.setText("不填数量默认全部使用哟~");
-	   bagUse.setTooltip(ts);
+	   setToolTips();//提示条
+	   initTable();//初始化Table
    }
    
    //登陆
@@ -198,6 +190,35 @@ public class MyController implements Initializable {
 	   GetSale get = new GetSale(util,tableSale);
 	   Thread th = new Thread(get);
 	   th.start();
+   }
+   
+   public void buySale(ActionEvent event) {
+	   ResSale res = (ResSale)tableSale.getSelectionModel().getSelectedItem();
+	   String num = textBuyNum.getText();
+	   num.replace(" ", "");
+	   if(res == null){
+		   util.showText("请先选择物品！");
+	   }else{
+		   BuySale get = new BuySale(util,res,num);
+		   Thread th = new Thread(get);
+		   th.start();
+	   }
+   }
+   
+   public void testButton (ActionEvent event) {
+	   if (testButton.getText().equals("开始")) {
+		   ts = new Test();
+		   Thread th = new Thread(ts);
+		   th.start();
+		   testButton.setText("停止");
+	   }else{
+		   testButton.setText("开始");
+		   ts.exit = true;
+	   }
+   }
+   
+   public boolean changeButton (Button bt) {
+	   return true;
    }
    
    // 功能界面切换
@@ -279,5 +300,37 @@ public class MyController implements Initializable {
 		list.addAll(set);
 		comboBoxUser.setItems(FXCollections.observableArrayList(list));
 		comboBoxUser.setVisibleRowCount(3);
+   }
+   
+   //提示条
+   public void setToolTips(){
+	   //背包使用
+	   Tooltip tsBagUse = new Tooltip();
+	   tsBagUse.setText("不填数量默认全部使用哟~");
+	   bagUse.setTooltip(tsBagUse);
+	   //整理
+	   Tooltip tsButtonSort = new Tooltip();
+	   tsButtonSort.setText("可以点击列名排序~");
+	   buttonSort.setTooltip(tsButtonSort);
+	   
+   }
+   //table初始化
+   public void initTable (){
+	   //背包
+	   bagId.setCellValueFactory(new PropertyValueFactory<>("id"));
+	   bagName.setCellValueFactory(new PropertyValueFactory<>("name"));
+	   bagNum.setCellValueFactory(new PropertyValueFactory<>("num"));
+	   bagSort.setCellValueFactory(new PropertyValueFactory<>("bagSort"));
+	   List<Res> res = new ArrayList<Res>();
+	   res.add(new Res(" "," "," "," "));
+	   bagTable.setItems(FXCollections.observableArrayList(res));
+	   //交易所
+	   saleId.setCellValueFactory(new PropertyValueFactory<>("id"));
+	   saleName.setCellValueFactory(new PropertyValueFactory<>("name"));
+	   saleNum.setCellValueFactory(new PropertyValueFactory<>("num"));
+	   salePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+	   List<ResSale> resSale = new ArrayList<ResSale>();
+	   resSale.add(new ResSale(" "," "," "," "));
+	   tableSale.setItems(FXCollections.observableArrayList(resSale));
    }
 }

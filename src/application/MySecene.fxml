@@ -140,7 +140,7 @@
                                               </columns>
                                             </TableView>
                                             <Button fx:id="refreshBag" layoutX="400.0" layoutY="222.0" mnemonicParsing="false" onAction="#refreshBag" prefHeight="26.0" prefWidth="66.0" text="刷新" />
-                                            <Button fx:id="buttonSort" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#sortBag" prefHeight="26.0" prefWidth="66.0" text="整理" />
+                                            <Button id="" fx:id="buttonSort" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#sortBag" prefHeight="26.0" prefWidth="66.0" text="整理" />
                                             <Button id="" fx:id="bagUse" layoutX="158.0" layoutY="222.0" mnemonicParsing="false" onAction="#bagUse" prefHeight="26.0" prefWidth="66.0" text="使用" />
                                             <Button id="" layoutX="240.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="入仓" />
                                             <TextField fx:id="bagUseNum" layoutX="68.0" layoutY="222.0" prefHeight="26.0" prefWidth="78.0" />
@@ -155,6 +155,9 @@
                                               </columns>
                                             </TableView>
                                             <Button id="" fx:id="refreshSale" layoutX="385.0" layoutY="449.0" mnemonicParsing="false" onAction="#refreshSale" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <TextField id="bagUseNum" fx:id="textBuyNum" layoutX="285.0" prefHeight="26.0" prefWidth="78.0" AnchorPane.bottomAnchor="204.0" />
+                                            <Button id="" layoutX="385.0" layoutY="419.0" mnemonicParsing="false" onAction="#buySale" prefHeight="26.0" prefWidth="66.0" text="购买" />
+                                            <Button id="test" fx:id="testButton" layoutX="28.0" layoutY="419.0" mnemonicParsing="false" onAction="#testButton" text="开始" />
                                           </children>
                                         </AnchorPane>
                                       </content>

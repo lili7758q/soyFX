@@ -80,6 +80,14 @@ public class Const {
 	public static final String pids_1221 = "1221";//玉露
 	public static final String pids_1222 = "1222";//天仙玉露
 	
+	/*购买结果*/
+	public static final String BUY_RET_SUCCESS = "0";//成功
+	public static final String BUY_RET_TOOMANY = "3";//购买物品数量太多！
+	public static final String BUY_RET_NEEDSPACE = "4";//包裹空间不足！
+	public static final String BUY_RET_TOOFAST = "5";//您操作太快！
+	public static final String BUY_RET_NOTYOU = "7";//该物品不是卖给你的哦！
+	public static final String BUY_RET_SALEOUT = "8";//您太慢了，东西卖完了！
+	public static final String BUY_RET_NOMONEY = "10";//您的金币不够！
 	/*分割*/
 	//bag
 	public static final String BAG_LEFT = "<li><a >";
@@ -105,4 +113,5 @@ public class Const {
 	public static final String SALEPRICE_RIGHT = ";\"";
 	public static final String SALENUM_LEFT = "(";
 	public static final String SALENUM_RIGHT = ")";
+	
 }

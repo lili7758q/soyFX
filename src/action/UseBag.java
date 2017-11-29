@@ -20,13 +20,12 @@ public class UseBag extends Task{
 		String id = res.getId();
 		String name = res.getName();
 		url = url + id;
-		util.showText("使用 "+name);
 		Map retMap = util.get(url);
 		if ((int)retMap.get("code") != 200){
 			util.showText("使用失败！");
 		}else {
 			String text = (String) retMap.get("body");
-			if(text.indexOf("login") == -1){
+			if(text.indexOf("login") != -1){
 				util.showText("网络中断...");
 			}else{
 				util.showText(text);
