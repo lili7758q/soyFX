@@ -127,6 +127,23 @@
                               <children>
                                 <TabPane layoutX="0.0" layoutY="0.0" prefHeight="680.0" prefWidth="480.0" tabClosingPolicy="UNAVAILABLE">
                                   <tabs>
+                                    <Tab text="宠物">
+                                      <content>
+                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                          <children>
+                                            <TableView id="" fx:id="tableMC" layoutX="0.0" prefHeight="214.0" prefWidth="480.0" styleClass="test-center" AnchorPane.topAnchor="0.0">
+                                              <columns>
+                                                <TableColumn id="MCid" prefWidth="120.0" styleClass="test-center" text="ID" fx:id="MCId" />
+                                                <TableColumn id="MCname" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="名称" fx:id="MCName" />
+                                                <TableColumn id="MCgenre" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="属性" fx:id="MCGenre" />
+                                                <TableColumn id="MClevel" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="等级" fx:id="MCLevel" />
+                                              </columns>
+                                            </TableView>
+                                            <Button id="" layoutX="400.0" layoutY="223.0" mnemonicParsing="false" onAction="#refreshMC" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                          </children>
+                                        </AnchorPane>
+                                      </content>
+                                    </Tab>
                                     <Tab text="背仓">
                                       <content>
                                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="480.0">
@@ -163,11 +180,6 @@
                                       </content>
                                     </Tab>
                                     <Tab text="拍卖">
-                                      <content>
-                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                      </content>
-                                    </Tab>
-                                    <Tab text="牧场">
                                       <content>
                                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                       </content>

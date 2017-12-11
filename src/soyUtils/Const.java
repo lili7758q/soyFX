@@ -114,4 +114,19 @@ public class Const {
 	public static final String SALENUM_LEFT = "(";
 	public static final String SALENUM_RIGHT = ")";
 	
+	//ÄÁ³¡
+	public static final String MC_PSW_ERR = "1";
+	public static final String MC_SUCCESS = "10";
+	public static final String MCLIST_LEFT = "shoplist\">";
+	public static final String MCLIST_RIGHT = "</table>";
+	public static final String MC_LEFT = "sel(this);";
+	public static final String MC_RIGHT = "</tr>";
+	public static final String MC_NAME_LF = "copyWord(\'";
+	public static final String MC_NAME_RT = "\');";
+	public static final String MC_ID_LF = "Display(";
+	public static final String MC_ID_RT = ");\">";
+	public static final String MC_LEVEL_LF = "left;\" >";
+	public static final String MC_LEVEL_RT = "</td>";
+	public static final String MC_GENRE_LF = "left;\">";
+	public static final String MC_GENRE_RT = "</td>";
 }

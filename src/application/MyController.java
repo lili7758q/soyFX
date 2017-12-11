@@ -24,6 +24,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
 import Entity.Res;
+import Entity.ResMC;
 import Entity.ResSale;
 import Entity.User;
 import javafx.collections.FXCollections;
@@ -49,6 +50,7 @@ import action.BuySale;
 import action.GetBag;
 import action.GetSale;
 import action.Login;
+import action.MCGet;
 import action.Test;
 import action.UseBag;
 
@@ -133,6 +135,17 @@ public class MyController implements Initializable {
    private ComboBox comboBoxUser;
    
    @FXML
+   private TableView tableMC;
+   @FXML
+   private TableColumn MCName;
+   @FXML
+   private TableColumn MCGenre;
+   @FXML
+   private TableColumn MCLevel;
+   @FXML
+   private TableColumn MCId;
+   
+   @FXML
    private Button testButton;
    
    Test ts;
@@ -203,6 +216,13 @@ public class MyController implements Initializable {
 		   Thread th = new Thread(get);
 		   th.start();
 	   }
+   }
+   
+   public void refreshMC(ActionEvent event) {
+	   MCGet get = new MCGet(util,tableMC,"1");
+	   Thread th = new Thread(get);
+	   th.start();
+	   
    }
    
    public void testButton (ActionEvent event) {
@@ -332,5 +352,13 @@ public class MyController implements Initializable {
 	   List<ResSale> resSale = new ArrayList<ResSale>();
 	   resSale.add(new ResSale(" "," "," "," "));
 	   tableSale.setItems(FXCollections.observableArrayList(resSale));
+	   //ÄÁ³¡
+	   MCId.setCellValueFactory(new PropertyValueFactory<>("id"));
+	   MCName.setCellValueFactory(new PropertyValueFactory<>("name"));
+	   MCLevel.setCellValueFactory(new PropertyValueFactory<>("level"));
+	   MCGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+	   List<ResMC> resMC = new ArrayList<ResMC>();
+	   resMC.add(new ResMC("","","",""));
+	   tableMC.setItems(FXCollections.observableArrayList(resMC));
    }
 }
