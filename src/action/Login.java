@@ -11,7 +11,9 @@ import org.apache.log4j.Logger;
 
 import Entity.Res;
 import javafx.concurrent.Task;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import soyUtils.Const;
 import soyUtils.IntUtil;
 import soyUtils.SoyUtils;
@@ -30,6 +32,10 @@ public class Login extends Task{
 	private String charset = Const.GB2321;
 	private IntUtil util;
 	private TextArea showText;
+	private TextField textJB;
+	private TextField textSJ;
+	private TextField textYB;
+	private TextField textName;
 	
 	public Login (IntUtil util,String username,String password){
 		this.util = util;
@@ -41,6 +47,12 @@ public class Login extends Task{
 		this.charset = charset;
 	}
 
+	public void setMoney(TextField textJB,TextField textSJ,TextField textYB,TextField textName){
+		this.textJB = textJB;
+		this.textSJ = textSJ;
+		this.textYB = textYB;
+		this.textName = textName;
+	}
 
 
 	@Override
@@ -69,6 +81,20 @@ public class Login extends Task{
 				 				util.showText("登陆失败!");
 				 			}else{
 					 			util.showText("登陆成功!");
+					 			util.showText("获取玩家信息...");
+					 			SoyUtils ut = new SoyUtils();
+					 			Map ret2 = util.get("function/User_Mod.php");
+					 			String body = (String)ret2.get("body");
+					 			String name = ut.getTag(Const.PUB_NAME_LF, Const.PUB_NAME_RT, body);
+					 			String JB = ut.getTag(Const.PUB_JB_LF, Const.PUB_JB_RT, body);
+					 			String SJ = ut.getTag(Const.PUB_SJ_LF, Const.PUB_SJ_RT, body);
+					 			String YB = ut.getTag(Const.PUB_YB_LF, Const.PUB_YB_RT, body);
+					 			textJB.setText(JB);
+					 			textName.setText(name);
+					 			textSJ.setText(SJ);
+					 			textYB.setText(YB);
+					 			util.showText("获取玩家信息完毕！");
+					 			util.showText("你好，"+name);
 				 			}
 			 			}
 		 			}

@@ -129,4 +129,14 @@ public class Const {
 	public static final String MC_LEVEL_RT = "</td>";
 	public static final String MC_GENRE_LF = "left;\">";
 	public static final String MC_GENRE_RT = "</td>";
+	
+	//个人信息
+	public static final String PUB_NAME_LF = "玩家昵称：";
+	public static final String PUB_NAME_RT = "</li>";
+	public static final String PUB_JB_LF = "金币：";
+	public static final String PUB_JB_RT = "</li>";
+	public static final String PUB_SJ_LF = "水晶：";
+	public static final String PUB_SJ_RT = "</li>";
+	public static final String PUB_YB_LF = "元宝：";
+	public static final String PUB_YB_RT = "</li>";
 }

@@ -14,7 +14,20 @@
   <children>
     <SplitPane dividerPositions="0.04073033707865169" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background-white">
+          <children>
+            <TextField id="bagUseNum" fx:id="textYB" editable="false" layoutX="878.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+            <TextField editable="false" layoutX="830.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="border-set, background-white, test-center" text="元宝:" />
+            <TextField id="bagUseNum" fx:id="textSJ" editable="false" layoutX="753.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+            <TextField editable="false" layoutX="705.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="border-set, background-white, test-center" text="水晶:" />
+            <TextField id="" fx:id="textJB" editable="false" layoutX="613.0" layoutY="0.0" prefHeight="26.0" prefWidth="92.0" styleClass="background-white" />
+            <TextField editable="false" layoutX="565.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="border-set, background-white, test-center" text="金币:" />
+            <TextField id="" fx:id="textName" layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+          </children>
+          <stylesheets>
+            <URL value="@../view/paneChilrd.css" />
+          </stylesheets>
+        </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
           <children>
             <SplitPane dividerPositions="0.1292929292929293" focusTraversable="true" prefHeight="682.0" prefWidth="994.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -140,6 +153,7 @@
                                               </columns>
                                             </TableView>
                                             <Button id="" layoutX="400.0" layoutY="223.0" mnemonicParsing="false" onAction="#refreshMC" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <PasswordField fx:id="MCpassword" layoutX="178.0" layoutY="225.0" prefWidth="200.0" />
                                           </children>
                                         </AnchorPane>
                                       </content>

@@ -109,6 +109,14 @@ public class MyController implements Initializable {
    private TextField bagUseNum;
    @FXML
    private TextField textBuyNum;
+   @FXML
+   private TextField textJB;
+   @FXML
+   private TextField textSJ;
+   @FXML
+   private TextField textYB;
+   @FXML
+   private TextField textName;
    
    @FXML
    private TableView bagTable;
@@ -163,6 +171,7 @@ public class MyController implements Initializable {
 	   String urlMain="http://s2.vvqz.com:8089/";
 	   util = new IntUtil(urlMain,charset,showText);
 	   Login login = new Login(util,"wxdwxd","5291314");
+	   login.setMoney(textJB, textSJ, textYB, textName);
 	   Thread th = new Thread(login);
 	   th.start();  
    }
