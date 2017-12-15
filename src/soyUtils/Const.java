@@ -139,4 +139,51 @@ public class Const {
 	public static final String PUB_SJ_RT = "</li>";
 	public static final String PUB_YB_LF = "元宝：";
 	public static final String PUB_YB_RT = "</li>";
+	
+	//普通地图
+	public static final String MAP_PT_XSJD = "1";
+	public static final String MAP_PT_YJSL = "2";
+	public static final String MAP_PT_CXHY = "3";
+	public static final String MAP_PT_JSSM = "4";
+	public static final String MAP_PT_HJL  = "5";
+	public static final String MAP_PT_CRST = "6";
+	public static final String MAP_PT_YMHS = "7";
+	public static final String MAP_PT_SWSM = "8";
+	public static final String MAP_PT_HSSL = "9";
+	public static final String MAP_PT_BT   = "10";
+	public static final String MAP_PT_HDSJ = "16";
+	public static final String MAP_PT_SDXW = "15";
+	
+	//新大陆地图
+	public static final String MAP_XDL_SZ   = "100";
+	public static final String MAP_XDL_PY   = "103";
+	public static final String MAP_XDL_LYL  = "106";
+	public static final String MAP_XDL_WZSY = "109";
+	public static final String MAP_XDL_GW   = "112";
+	public static final String MAP_XDL_TKZC = "115";
+	public static final String MAP_XDL_TZL  = "118";
+	public static final String MAP_XDL_WZL  = "121";
+	public static final String MAP_XDL_SSYD = "20";
+	
+	//神圣地图
+	public static final String MAP_SS_MGZD = "131";//埋骨之地
+	public static final String MAP_SS_BZL  = "134";//孢子林
+	public static final String MAP_SS_MWSL = "137";//迷雾森林
+	public static final String MAP_SS_JSHY = "140";//巨石荒野
+	public static final String MAP_SS_LLZQ = "145";//蓝泪之泉
+	public static final String MAP_SS_SZZT = "148";//赎罪之塔
+	
+	//副本
+	public static final String MAP_FB_YSW = "11";
+	public static final String MAP_FB_HLW = "12";
+	public static final String MAP_FB_SFK = "13";//史芬克斯密穴
+	public static final String MAP_FB_LLC = "14";//玲珑城
+	
+	public static final String MAP_FB_EFS = "50";
+	public static final String MAP_FB_ART = "124";
+	public static final String MAP_FB_FLK = "127";//菲拉苛
+	
+	public static final String MAP_FB_RYDG = "143";//熔岩地宫
+	public static final String MAP_FB_MHZJ = "144";//幻魔之境
+	
 }

@@ -27,6 +27,8 @@ import Entity.Res;
 import Entity.ResMC;
 import Entity.ResSale;
 import Entity.User;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,6 +46,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import soyUtils.Const;
 import soyUtils.IntUtil;
+import soyUtils.MapInit;
 import soyUtils.SoyGet;
 import soyUtils.SoyPost;
 import action.BuySale;
@@ -141,6 +144,12 @@ public class MyController implements Initializable {
    private TableColumn saleId;
    @FXML
    private ComboBox comboBoxUser;
+   @FXML
+   private ComboBox comboBoxFight;
+   @FXML
+   private ComboBox comboBoxMap;
+   @FXML
+   private ComboBox comboBoxDiff;
    
    @FXML
    private TableView tableMC;
@@ -157,11 +166,15 @@ public class MyController implements Initializable {
    private Button testButton;
    
    Test ts;
+   Map mapPT ;
+   Map mapXDL;
+   Map mapSS;
    //初始化数据
    @Override
    public void initialize(URL location, ResourceBundle resources) {
 	   showText.setEditable(false);//右侧显示栏不可编辑
 	   setUser();//设置已保存的用户
+	   initMap ();//设置打图
 	   setToolTips();//提示条
 	   initTable();//初始化Table
    }
@@ -303,7 +316,7 @@ public class MyController implements Initializable {
 	   btMain6.setStyle("-fx-text-fill: #006464;");
 	   btMain7.setStyle("-fx-text-fill: #006464;");
 	   btMain8.setStyle("-fx-text-fill: #006464;");
-	   button.setStyle("-fx-text-fill:red;");
+	   button.setStyle("-fx-text-fill:#ff8b66;");
    }
    
    public void map2ListParam (Map<String,String> map,List param){
@@ -329,6 +342,64 @@ public class MyController implements Initializable {
 		list.addAll(set);
 		comboBoxUser.setItems(FXCollections.observableArrayList(list));
 		comboBoxUser.setVisibleRowCount(3);
+   }
+   
+   //地图选项初始化
+   public void initMap () {
+	   List list = new ArrayList();
+	   list.add("普通地图");
+	   list.add("新大陆");
+	   list.add("神圣地图");
+	   comboBoxFight.setItems(FXCollections.observableArrayList(list));
+	   comboBoxFight.getSelectionModel().select(0);
+	   getMap();
+	   setMap(1);
+	   
+	   comboBoxFight.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+		@Override
+		public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+			String value = (String)newValue;
+			if (value.equals("普通地图")) {
+				setMap(1);
+			}else if (value.equals("新大陆")) {
+				setMap(2);
+			}else if (value.equals("神圣地图")){
+				setMap(3);
+			}
+		}
+		
+	});
+	   
+	   List diff = new ArrayList();
+	   diff.add("普通");
+	   diff.add("困难");
+	   diff.add("冒险");
+	   comboBoxDiff.setItems(FXCollections.observableArrayList(diff));
+	   comboBoxDiff.getSelectionModel().select(0);
+	   comboBoxDiff.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+			@Override
+			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+			//TODO	
+			}
+		});
+   }
+   
+   private void setMap(int type){
+	   if (type == 1) {
+		   comboBoxMap.setItems(FXCollections.observableArrayList((List)mapPT.get("key")));
+	   }else if (type ==2) {
+		   comboBoxMap.setItems(FXCollections.observableArrayList((List)mapXDL.get("key")));
+	   }else {
+		   comboBoxMap.setItems(FXCollections.observableArrayList((List)mapSS.get("key")));
+	   }
+	   comboBoxMap.getSelectionModel().select(0);
+   }
+   
+   private void getMap(){
+	   MapInit init = new MapInit();
+	   mapPT = init.initMapPT();
+	   mapXDL = init.initMapXDL();
+	   mapSS = init.initMapSS();
    }
    
    //提示条
