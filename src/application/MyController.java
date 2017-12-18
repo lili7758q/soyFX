@@ -24,7 +24,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
 import Entity.Res;
-import Entity.ResMC;
+import Entity.ResPet;
 import Entity.ResSale;
 import Entity.User;
 import javafx.beans.value.ChangeListener;
@@ -51,6 +51,7 @@ import soyUtils.SoyGet;
 import soyUtils.SoyPost;
 import action.BuySale;
 import action.GetBag;
+import action.GetPerson;
 import action.GetSale;
 import action.Login;
 import action.MCGet;
@@ -120,6 +121,8 @@ public class MyController implements Initializable {
    private TextField textYB;
    @FXML
    private TextField textName;
+   @FXML
+   private TextField textPetName;
    
    @FXML
    private TableView bagTable;
@@ -150,6 +153,8 @@ public class MyController implements Initializable {
    private ComboBox comboBoxMap;
    @FXML
    private ComboBox comboBoxDiff;
+   @FXML
+   private ComboBox comboBoxMainSkill;
    
    @FXML
    private TableView tableMC;
@@ -161,9 +166,13 @@ public class MyController implements Initializable {
    private TableColumn MCLevel;
    @FXML
    private TableColumn MCId;
+   @FXML
+   private TableView tablePetBag;
    
    @FXML
    private Button testButton;
+   
+   
    
    Test ts;
    Map mapPT ;
@@ -184,10 +193,24 @@ public class MyController implements Initializable {
 	   String urlMain="http://s2.vvqz.com:8089/";
 	   util = new IntUtil(urlMain,charset,showText);
 	   Login login = new Login(util,"wxdwxd","5291314");
-	   login.setMoney(textJB, textSJ, textYB, textName);
+	   login.setMoney(textJB, textSJ, textYB, textName,textPetName,comboBoxMainSkill);
 	   Thread th = new Thread(login);
 	   th.start();  
    }
+   
+   //刷新个人信息
+   public void refreshPersonInfo (ActionEvent event)throws Exception{
+	   GetPerson get = new GetPerson(util);
+	   get.setInfo(textJB, textSJ, textYB, textName, textPetName,comboBoxMainSkill);
+	   Thread th2 = new Thread(get);
+	   th2.start();
+   }
+   
+   //刷新背包宠
+   public void refreshBagPet (ActionEvent event)throws Exception{
+	   
+   }
+   
    //刷新背包
    public void refreshBag(ActionEvent event) throws Exception{
 	   GetBag getBag = new GetBag(util,bagTable);
@@ -437,8 +460,8 @@ public class MyController implements Initializable {
 	   MCName.setCellValueFactory(new PropertyValueFactory<>("name"));
 	   MCLevel.setCellValueFactory(new PropertyValueFactory<>("level"));
 	   MCGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
-	   List<ResMC> resMC = new ArrayList<ResMC>();
-	   resMC.add(new ResMC("","","",""));
+	   List<ResPet> resMC = new ArrayList<ResPet>();
+	   resMC.add(new ResPet("","","",""));
 	   tableMC.setItems(FXCollections.observableArrayList(resMC));
    }
 }

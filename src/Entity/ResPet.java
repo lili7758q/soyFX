@@ -2,13 +2,13 @@ package Entity;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class ResMC {
+public class ResPet {
 	private final SimpleStringProperty id;
 	private final SimpleStringProperty name;
 	private final SimpleStringProperty genre;
 	private final SimpleStringProperty level;
 	
-	public ResMC(String id,String name,String genre,String level ){
+	public ResPet(String id,String name,String genre,String level ){
 		this.id = new SimpleStringProperty(id);
 		this.name = new SimpleStringProperty(name);
 		this.genre = new SimpleStringProperty(genre);

@@ -186,4 +186,12 @@ public class Const {
 	public static final String MAP_FB_RYDG = "143";//熔岩地宫
 	public static final String MAP_FB_MHZJ = "144";//幻魔之境
 	
+	//主宠信息
+	public static final String PET_MAIN_LF = "<br/>宝贝：<font color=green>";
+	public static final String PET_MAIN_RT = "</font><br />";
+	public static final String PET_MAIN_SKILLLIST_LF = "pet_c3_r";
+	public static final String PET_MAIN_SKILLLIST_RT = "</div>";
+	public static final String PET_MAIN_SKILL_LF = "copyWord('";
+	public static final String PET_MAIN_SKILL_RT = "');";
+	
 }

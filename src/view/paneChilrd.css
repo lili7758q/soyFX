@@ -27,14 +27,26 @@
     -fx-cursor:hand;
 }
 .buttonMy:hover {
-	-fx-text-fill: red;  
+	-fx-text-fill: ff8b66;  
 }
 
 .bottonHand:hover{
 	-fx-cursor:hand;
-	-fx-text-fill: red; 
+	-fx-text-fill: ff8b66; 
 }
 
 .test-center {
 	-fx-alignment: CENTER;
+}
+
+.text-left {
+	-fx-text-align: left;
+}
+
+.text-red {
+	-fx-text-fill:#ff8b66;
+}
+
+.text-green {
+	-fx-text-fill:green;
 }

@@ -17,13 +17,24 @@
       <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background-white">
           <children>
-            <TextField id="bagUseNum" fx:id="textYB" editable="false" layoutX="878.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+            <TextField id="bagUseNum" fx:id="textYB" editable="false" layoutX="878.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white, text-red" />
             <TextField editable="false" layoutX="830.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="border-set, background-white, test-center" text="元宝:" />
-            <TextField id="bagUseNum" fx:id="textSJ" editable="false" layoutX="753.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+            <TextField id="bagUseNum" fx:id="textSJ" editable="false" layoutX="753.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white, text-red" />
             <TextField editable="false" layoutX="705.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="border-set, background-white, test-center" text="水晶:" />
-            <TextField id="" fx:id="textJB" editable="false" layoutX="613.0" layoutY="0.0" prefHeight="26.0" prefWidth="92.0" styleClass="background-white" />
+            <TextField id="" fx:id="textJB" editable="false" layoutX="613.0" layoutY="0.0" prefHeight="26.0" prefWidth="92.0" styleClass="background-white, text-red" />
             <TextField editable="false" layoutX="565.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="border-set, background-white, test-center" text="金币:" />
-            <TextField id="" fx:id="textName" layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+            <TextField id="" fx:id="textName" alignment="CENTER_RIGHT" editable="false" layoutX="55.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.00009999999747" styleClass="background-white, text-green, text-left" />
+            <TextField editable="false" layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="55.0" styleClass="background-white" text="玩家名:" />
+            <TextField editable="false" layoutX="134.0" layoutY="0.0" prefHeight="26.0" prefWidth="48.0" styleClass="background-white" text="主宠:" />
+            <TextField id="" fx:id="textPetName" editable="false" layoutX="182.0" layoutY="0.0" prefHeight="26.0" prefWidth="78.0" styleClass="background-white" />
+            <TextField editable="false" layoutX="260.0" layoutY="0.0" prefHeight="26.0" prefWidth="68.0" styleClass="background-white" text="主宠技能:" />
+            <ComboBox id="comboBoxFight" fx:id="comboBoxMainSkill" layoutX="328.0" layoutY="3.0" prefHeight="20.999900000002526" prefWidth="106.0" styleClass="test-center">
+              <items>
+                <FXCollections fx:factory="observableArrayList" />
+              </items>
+            </ComboBox>
+            <Button id="buttonRefreshPerson" fx:id="buttonRefreshPersonInfo" layoutX="441.0" layoutY="3.0" mnemonicParsing="false" onAction="#refreshPersonInfo" prefWidth="48.0" styleClass="bottonHand" text="刷新" />
+            <Separator layoutX="522.0" layoutY="-86.0" orientation="VERTICAL" prefHeight="200.0" />
           </children>
           <stylesheets>
             <URL value="@../view/paneChilrd.css" />
@@ -180,35 +191,45 @@
                                           <children>
                                             <ComboBox fx:id="comboBoxFight" layoutX="148.0" layoutY="16.0" prefHeight="21.0" prefWidth="92.0" styleClass="test-center">
                                               <items>
-                                                <FXCollections fx:factory="observableArrayList">
-                                                  <String fx:value="项 1" />
-                                                  <String fx:value="项 2" />
-                                                  <String fx:value="项 3" />
-                                                </FXCollections>
+                                                <FXCollections fx:factory="observableArrayList" />
                                               </items>
                                             </ComboBox>
                                             <ComboBox fx:id="comboBoxMap" layoutX="283.0" layoutY="16.0" prefHeight="21.0" prefWidth="107.0" styleClass="test-center">
                                               <items>
-                                                <FXCollections fx:factory="observableArrayList">
-                                                  <String fx:value="项 1" />
-                                                  <String fx:value="项 2" />
-                                                  <String fx:value="项 3" />
-                                                </FXCollections>
+                                                <FXCollections fx:factory="observableArrayList" />
                                               </items>
                                             </ComboBox>
                                             <TextField disable="true" layoutX="29.0" layoutY="10.0" prefHeight="33.0" prefWidth="106.0" styleClass="text-see-smaller, text-see, border-set, background-white" text="选择地图：" />
                                             <TextField disable="true" layoutX="29.0" layoutY="59.0" prefHeight="33.0" prefWidth="106.0" styleClass="text-see-smaller, text-see, border-set, background-white" text="选择难度：" />
                                             <ComboBox fx:id="comboBoxDiff" layoutX="148.0" layoutY="66.0" prefHeight="21.0" prefWidth="92.0">
                                               <items>
-                                                <FXCollections fx:factory="observableArrayList">
-                                                  <String fx:value="项 1" />
-                                                  <String fx:value="项 2" />
-                                                  <String fx:value="项 3" />
-                                                </FXCollections>
+                                                <FXCollections fx:factory="observableArrayList" />
                                               </items>
                                             </ComboBox>
                                             <Separator layoutX="-18.0" layoutY="121.0" minHeight="1.0" prefHeight="1.0" prefWidth="498.0" />
-                                            <TextField editable="false" layoutX="21.0" layoutY="110.0" prefWidth="68.0" styleClass="background-white" text="捕捉设置:" />
+                                            <TextField editable="false" layoutX="21.0" layoutY="110.0" prefWidth="62.0" styleClass="background-white" text="捕捉设置" />
+                                            <CheckBox layoutX="36.0" layoutY="148.0" mnemonicParsing="false" prefHeight="18.000099999997474" prefWidth="78.0" text="开启捕捉" />
+                                            <CheckBox layoutX="36.0" layoutY="184.0" mnemonicParsing="false" selected="true" text="非目标宠物逃跑" />
+                                            <TextField editable="false" layoutX="274.0" layoutY="132.0" prefWidth="145.0" styleClass="background-white" text="捕捉宠名称（用|隔开）:" />
+                                            <TextField editable="false" layoutX="30.0" layoutY="216.0" prefHeight="25.999908447265625" prefWidth="68.0" styleClass="background-white" text="捕捉血量:" />
+                                            <TextField layoutX="98.0" layoutY="218.0" prefWidth="31.0" />
+                                            <TextField editable="false" layoutX="131.0" layoutY="218.0" prefWidth="70.0" styleClass="background-white" text="\%(1-100)" />
+                                            <Separator layoutX="-18.0" layoutY="253.0" minHeight="1.0" prefHeight="1.0" prefWidth="498.0" />
+                                            <TextField editable="false" layoutX="21.0" layoutY="242.0" prefWidth="62.0" styleClass="background-white" text="挂机设置" />
+                                            <TextArea layoutX="266.0" layoutY="158.0" prefHeight="77.0" prefWidth="200.0" text="水|火" wrapText="true" />
+                                            <CheckBox layoutY="273.0" mnemonicParsing="false" prefHeight="18.000099999997474" prefWidth="78.0" text="丢弃物品" AnchorPane.leftAnchor="266.0" />
+                                            <TextField editable="false" layoutY="301.0" prefWidth="145.0" styleClass="background-white" text="丢弃物名称（用|隔开）:" AnchorPane.leftAnchor="259.0" />
+                                            <TextArea layoutY="330.0" prefHeight="84.0" prefWidth="200.0" text="精炼宝石|龙宫" wrapText="true" AnchorPane.leftAnchor="266.0" />
+                                            <Button layoutX="297.0" layoutY="67.0" mnemonicParsing="false" prefWidth="79.0" styleClass="bottonHand" text="开始" />
+                                            <TableView id="tableBagPet" fx:id="tablePetBag" layoutX="14.0" layoutY="273.0" prefHeight="140.0" prefWidth="181.0">
+                                              <columns>
+                                                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" text="名称" />
+                                                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" text="等级" />
+                                              </columns>
+                                            </TableView>
+                                            <Button layoutX="70.0" layoutY="427.0" mnemonicParsing="false" onAction="#refreshBagPet" text="刷新" />
+                                            <Button layoutX="126.0" layoutY="427.0" mnemonicParsing="false" text="设为主战" />
+                                            <Button layoutX="14.0" layoutY="427.0" mnemonicParsing="false" text="丢弃" />
                                           </children>
                                         </AnchorPane>
                                       </content>

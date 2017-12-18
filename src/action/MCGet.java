@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import Entity.ResMC;
+import Entity.ResPet;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
@@ -78,7 +78,7 @@ public class MCGet extends Task{
 		}
 		
 		SoyUtils ut = new SoyUtils();
-		List <ResMC> resMC = new ArrayList<ResMC>();
+		List <ResPet> resMC = new ArrayList<ResPet>();
 		String mcBody = (String) retMap.get("body");
 		String mc = ut.getTag(Const.MCLIST_LEFT, Const.MCLIST_RIGHT, mcBody);
 		List<String> mcList = ut.getTagList(Const.MC_LEFT, Const.MC_RIGHT, mc);
@@ -87,7 +87,7 @@ public class MCGet extends Task{
 			String level = ut.getTag(Const.MC_LEVEL_LF, Const.MC_LEVEL_RT, m);
 			String name = ut.getTag(Const.MC_NAME_LF, Const.MC_NAME_RT, m);
 			String genre = ut.getTag(Const.MC_GENRE_LF, Const.MC_GENRE_RT, m);
-			resMC.add(new ResMC(id,name,genre,level));
+			resMC.add(new ResPet(id,name,genre,level));
 		}
 		
 		Platform.runLater(new Runnable() {
