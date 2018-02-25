@@ -227,6 +227,7 @@ public class MyController implements Initializable {
    }
 
    //使用
+   //TODO 没填数字无限使用，物品用完后终止
    public void bagUse(ActionEvent event){
 	   Res res = (Res)bagTable.getSelectionModel().getSelectedItem();
 	   String num = bagUseNum.getText();
