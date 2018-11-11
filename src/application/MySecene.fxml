@@ -13,7 +13,7 @@
 <AnchorPane fx:id="paneMain" prefHeight="714.0" prefWidth="994.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MyController">
   <!-- TODO Add Nodes -->
   <children>
-    <SplitPane dividerPositions="0.04073033707865169" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <SplitPane dividerPositions="0.04073033707865169" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
       <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background-white">
           <children>
@@ -92,72 +92,6 @@
                             <Pane id="" fx:id="rightPane1" prefHeight="678.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <children>
                                 <TextArea id="" editable="false" layoutX="2.0" layoutY="0.0" prefHeight="678.0" prefWidth="477.0" style="" styleClass="text-pane1" text="1.烂表是猪&#10;1.烂表是猪&#10;1.烂表是猪" wrapText="true" />
-                              </children>
-                            </Pane>
-                            <Pane id="" fx:id="rightPane3" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <children>
-                                <TabPane layoutX="0.0" layoutY="0.0" prefHeight="680.0" prefWidth="480.0" tabClosingPolicy="UNAVAILABLE">
-                                  <tabs>
-                                    <Tab text="宠物">
-                                      <content>
-                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                          <children>
-                                            <TableView id="" fx:id="tableMC" layoutX="0.0" prefHeight="214.0" prefWidth="480.0" styleClass="test-center" AnchorPane.topAnchor="0.0">
-                                              <columns>
-                                                <TableColumn id="MCid" prefWidth="120.0" styleClass="test-center" text="ID" fx:id="MCId" />
-                                                <TableColumn id="MCname" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="名称" fx:id="MCName" />
-                                                <TableColumn id="MCgenre" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="属性" fx:id="MCGenre" />
-                                                <TableColumn id="MClevel" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="等级" fx:id="MCLevel" />
-                                              </columns>
-                                            </TableView>
-                                            <Button id="" layoutX="400.0" layoutY="223.0" mnemonicParsing="false" onAction="#refreshMC" prefHeight="26.0" prefWidth="66.0" text="刷新" />
-                                            <PasswordField fx:id="MCpassword" layoutX="178.0" layoutY="225.0" prefWidth="200.0" />
-                                          </children>
-                                        </AnchorPane>
-                                      </content>
-                                    </Tab>
-                                    <Tab text="背仓">
-                                      <content>
-                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="480.0">
-                                          <children>
-                                            <TableView fx:id="bagTable" layoutY="0.0" prefHeight="214.0" prefWidth="355.0000999999975" styleClass="test-center" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                              <columns>
-                                                <TableColumn id="bagId" prefWidth="120.0" styleClass="test-center" text="ID" fx:id="bagId" />
-                                                <TableColumn id="bagName" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="名称" fx:id="bagName" />
-                                                <TableColumn id="bagSort" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="类别" fx:id="bagSort" />
-                                                <TableColumn id="bagNum" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="数量" fx:id="bagNum" />
-                                              </columns>
-                                            </TableView>
-                                            <Button fx:id="refreshBag" layoutX="400.0" layoutY="222.0" mnemonicParsing="false" onAction="#refreshBag" prefHeight="26.0" prefWidth="66.0" text="刷新" />
-                                            <Button id="" fx:id="buttonSort" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#sortBag" prefHeight="26.0" prefWidth="66.0" text="整理" />
-                                            <Button id="" fx:id="bagUse" layoutX="158.0" layoutY="222.0" mnemonicParsing="false" onAction="#bagUse" prefHeight="26.0" prefWidth="66.0" text="使用" />
-                                            <Button id="" layoutX="240.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="入仓" />
-                                            <TextField fx:id="bagUseNum" layoutX="68.0" layoutY="222.0" prefHeight="26.0" prefWidth="78.0" />
-                                            <TextField editable="false" layoutX="7.0" layoutY="222.0" prefHeight="26.0" prefWidth="61.0" styleClass="border-set, background-white, test-center" text="数量:" />
-                                            <Line endX="379.29290771484375" endY="0.0" layoutY="414.0" startX="-100.0" AnchorPane.leftAnchor="-0.29" AnchorPane.rightAnchor="0.29" />
-                                            <TableView fx:id="tableSale" layoutY="449.0" prefHeight="200.0" prefWidth="363.0" AnchorPane.rightAnchor="117.0">
-                                              <columns>
-                                                <TableColumn id="" prefWidth="120.0" styleClass="test-center" text="名称" fx:id="saleName" />
-                                                <TableColumn id="" prefWidth="120.0" styleClass="test-center" text="数量" fx:id="saleNum" />
-                                                <TableColumn id="" prefWidth="120.0" styleClass="test-center" text="价格" fx:id="salePrice" />
-                                                <TableColumn id="saleId" prefWidth="75.0" text="物品id" visible="false" fx:id="saleId" />
-                                              </columns>
-                                            </TableView>
-                                            <Button id="" fx:id="refreshSale" layoutX="385.0" layoutY="449.0" mnemonicParsing="false" onAction="#refreshSale" prefHeight="26.0" prefWidth="66.0" text="刷新" />
-                                            <TextField id="bagUseNum" fx:id="textBuyNum" layoutX="285.0" prefHeight="26.0" prefWidth="78.0" AnchorPane.bottomAnchor="204.0" />
-                                            <Button id="" layoutX="385.0" layoutY="419.0" mnemonicParsing="false" onAction="#buySale" prefHeight="26.0" prefWidth="66.0" text="购买" />
-                                            <Button id="test" fx:id="testButton" layoutX="28.0" layoutY="419.0" mnemonicParsing="false" onAction="#testButton" text="开始" />
-                                          </children>
-                                        </AnchorPane>
-                                      </content>
-                                    </Tab>
-                                    <Tab text="拍卖">
-                                      <content>
-                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                      </content>
-                                    </Tab>
-                                  </tabs>
-                                </TabPane>
                               </children>
                             </Pane>
                             <Pane id="" fx:id="rightPane2" prefHeight="678.0" prefWidth="859.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -242,6 +176,105 @@
                                     <Tab text="通天塔">
                                       <content>
                                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                  </tabs>
+                                </TabPane>
+                              </children>
+                            </Pane>
+                            <Pane id="" fx:id="rightPane3" prefHeight="591.0" prefWidth="693.0" styleClass="background-white" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <children>
+                                <TabPane layoutX="-1.0" layoutY="-2.0" prefHeight="680.0" prefWidth="480.0" tabClosingPolicy="UNAVAILABLE">
+                                  <tabs>
+                                    <Tab text="宠物">
+                                      <content>
+                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                          <children>
+                                            <TableView id="" fx:id="tableMC" layoutX="0.0" prefHeight="214.0" prefWidth="480.0" styleClass="test-center" AnchorPane.topAnchor="0.0">
+                                              <columns>
+                                                <TableColumn id="MCid" prefWidth="120.0" styleClass="test-center" text="ID" fx:id="MCId" />
+                                                <TableColumn id="MCname" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="名称" fx:id="MCName" />
+                                                <TableColumn id="MCgenre" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="属性" fx:id="MCGenre" />
+                                                <TableColumn id="MClevel" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="等级" fx:id="MCLevel" />
+                                              </columns>
+                                            </TableView>
+                                            <Button id="" layoutX="400.0" layoutY="223.0" mnemonicParsing="false" onAction="#refreshMC" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <PasswordField fx:id="MCpassword" layoutX="178.0" layoutY="225.0" prefWidth="200.0" />
+                                          </children>
+                                        </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="背仓">
+                                      <content>
+                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="480.0">
+                                          <children>
+                                            <TableView fx:id="bagTable" layoutY="0.0" onMouseClicked="#showTips" prefHeight="214.0" prefWidth="355.0000999999975" styleClass="test-center" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                              <columns>
+                                                <TableColumn id="bagId" prefWidth="120.0" styleClass="test-center" text="ID" fx:id="bagId" />
+                                                <TableColumn id="bagName" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="名称" fx:id="bagName" />
+                                                <TableColumn id="bagSort" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="类别" fx:id="bagSort" />
+                                                <TableColumn id="bagNum" maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" styleClass="test-center" text="数量" fx:id="bagNum" />
+                                              </columns>
+                                            </TableView>
+                                            <Button fx:id="refreshBag" layoutX="400.0" layoutY="222.0" mnemonicParsing="false" onAction="#refreshBag" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <Button id="" fx:id="buttonSort" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#sortBag" prefHeight="26.0" prefWidth="66.0" text="整理" />
+                                            <Button id="" fx:id="bagUse" layoutX="158.0" layoutY="222.0" mnemonicParsing="false" onAction="#bagUse" prefHeight="26.0" prefWidth="66.0" text="使用" />
+                                            <Button id="" layoutX="240.0" layoutY="222.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="入仓" />
+                                            <TextField fx:id="bagUseNum" layoutX="68.0" layoutY="222.0" prefHeight="26.0" prefWidth="78.0" />
+                                            <TextField editable="false" layoutX="7.0" layoutY="222.0" prefHeight="26.0" prefWidth="61.0" styleClass="border-set, background-white, test-center" text="数量:" />
+                                            <Line endX="379.29290771484375" endY="0.0" layoutY="414.0" startX="-100.0" AnchorPane.leftAnchor="-0.29" AnchorPane.rightAnchor="0.29" />
+                                            <TableView fx:id="tableSale" layoutY="449.0" prefHeight="200.0" prefWidth="363.0" AnchorPane.rightAnchor="117.0">
+                                              <columns>
+                                                <TableColumn id="" prefWidth="120.0" styleClass="test-center" text="名称" fx:id="saleName" />
+                                                <TableColumn id="" prefWidth="120.0" styleClass="test-center" text="数量" fx:id="saleNum" />
+                                                <TableColumn id="" prefWidth="120.0" styleClass="test-center" text="价格" fx:id="salePrice" />
+                                                <TableColumn id="saleId" prefWidth="75.0" text="物品id" visible="false" fx:id="saleId" />
+                                              </columns>
+                                            </TableView>
+                                            <Button id="" fx:id="refreshSale" layoutX="385.0" layoutY="449.0" mnemonicParsing="false" onAction="#refreshSale" prefHeight="26.0" prefWidth="66.0" text="刷新" />
+                                            <TextField id="bagUseNum" fx:id="textBuyNum" layoutX="285.0" prefHeight="26.0" prefWidth="78.0" AnchorPane.bottomAnchor="204.0" />
+                                            <Button id="" layoutX="385.0" layoutY="419.0" mnemonicParsing="false" onAction="#buySale" prefHeight="26.0" prefWidth="66.0" text="购买" />
+                                            <Button id="test" fx:id="testButton" layoutX="28.0" layoutY="419.0" mnemonicParsing="false" onAction="#testButton" text="开始" />
+                                          </children>
+                                        </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="拍卖">
+                                      <content>
+                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      </content>
+                                    </Tab>
+                                    <Tab closable="false" text="抢购">
+                                      <content>
+                                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                          <children>
+                                            <Button fx:id="ButtonRushPurchase" layoutX="405.0" layoutY="221.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="开始买" />
+                                            <TableView id="bagTable" fx:id="rushBuyTable" layoutX="1.0" layoutY="0.0" prefHeight="214.0" prefWidth="480.0" styleClass="test-center">
+                                              <columns>
+                                                <TableColumn id="" maxWidth="5000.0" minWidth="10.0" prefWidth="159.0" styleClass="test-center" text="名称" fx:id="rushBuyName" />
+                                                <TableColumn id="" maxWidth="5000.0" minWidth="10.0" prefWidth="159.0" styleClass="test-center" text="价格" fx:id="rushBuyPrice" />
+                                                <TableColumn id="" maxWidth="5000.0" minWidth="10.0" prefWidth="158.0" styleClass="test-center" text="剩余" fx:id="rushBuyNum" />
+                                                <TableColumn id="" prefWidth="96.0" styleClass="test-center" text="ID" visible="false" fx:id="rushBuyId" />
+                                              </columns>
+                                            </TableView>
+                                            <TextField fx:id="rushBuySelectNum" layoutX="293.0" layoutY="221.0" prefHeight="26.0" prefWidth="92.0" />
+                                            <TextField editable="false" layoutX="222.0" layoutY="221.0" prefHeight="26.0" prefWidth="61.0" styleClass="border-set, background-white, test-center" text="总 数  :" />
+                                            <TextArea fx:id="rushBuyTips" layoutX="15.0" prefHeight="122.0" prefWidth="215.0" wrapText="true" AnchorPane.topAnchor="279.0" />
+                                            <TextArea fx:id="rushBuyPreText" layoutX="15.0" layoutY="413.0" prefHeight="201.0" prefWidth="215.0" text="物品1,每次购买数,总购买数;&#10;物品2,每次购买数,总购买数;&#10;物品3 ......" wrapText="true" />
+                                            <Button id="ButtonRushPurchase" layoutX="157.0" layoutY="617.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="55.0" text="开始买">
+                                              <font>
+                                                <Font size="10.0" fx:id="x1" />
+                                              </font>
+                                            </Button>
+                                            <Separator layoutX="237.0" layoutY="253.0" orientation="VERTICAL" prefHeight="395.0" />
+                                            <TextField editable="false" layoutX="77.0" layoutY="253.0" prefHeight="26.0" prefWidth="92.0" styleClass="border-set, background-white, test-center" text="物 品 说 明" />
+                                            <Separator layoutX="7.0" layoutY="252.0" prefWidth="474.0" />
+                                            <Button id="ButtonRushPurchase" font="$x1" layoutX="31.0" layoutY="617.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" text="清空内容" />
+                                            <TextArea layoutX="253.0" layoutY="279.0" prefHeight="356.0" prefWidth="214.0" wrapText="true" />
+                                            <TextField editable="false" layoutX="314.0" layoutY="253.0" prefHeight="26.0" prefWidth="92.0" styleClass="border-set, background-white, test-center" text="购 买 记 录" />
+                                            <Button id="ButtonRushPurchase" layoutX="16.0" layoutY="221.0" mnemonicParsing="false" onAction="#refreshRushBuy" prefHeight="26.0" prefWidth="68.0" text="刷 新" />
+                                          </children>
+                                        </AnchorPane>
                                       </content>
                                     </Tab>
                                   </tabs>

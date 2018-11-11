@@ -57,6 +57,7 @@ public class IntUtil {
 	static CloseableHttpClient client;
 	static Logger log = Logger.getLogger(IntUtil.class);
 	TextArea showText;
+	TextArea rushBuyTips;
 	
 	
 	public IntUtil (String urlMain,String charset,TextArea showText){
@@ -64,6 +65,10 @@ public class IntUtil {
 		this.UMAIN = urlMain;
 		this.CHARSET = charset;
 		this.showText = showText;
+	}
+	
+	public void setRushBuyTips(TextArea rushBuyTips){
+		this.rushBuyTips = rushBuyTips;
 	}
 	public void setCharset (String charset){
 		this.CHARSET = charset;
@@ -260,6 +265,17 @@ public class IntUtil {
 					  SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 					  //奇怪，单独append个换行符可能会报属java.lang.NullPointerException?
 					  showText.appendText("["+format.format(new Date())+"]" + " - "+text+"\n");
+			    }
+			});
+		  
+	  }
+	  
+	  public void showTips(String text){
+		  Platform.runLater(new Runnable() {
+			    @Override
+			    public void run() {
+					  log.error(text);
+					  showText.appendText(text);
 			    }
 			});
 		  

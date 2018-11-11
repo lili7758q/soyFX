@@ -25,6 +25,7 @@ import org.apache.log4j.Logger;
 
 import Entity.Res;
 import Entity.ResPet;
+import Entity.ResRush;
 import Entity.ResSale;
 import Entity.User;
 import javafx.beans.value.ChangeListener;
@@ -52,6 +53,7 @@ import soyUtils.SoyPost;
 import action.BuySale;
 import action.GetBag;
 import action.GetPerson;
+import action.GetRushBuy;
 import action.GetSale;
 import action.Login;
 import action.MCGet;
@@ -67,7 +69,7 @@ public class MyController implements Initializable {
 	static Logger log = Logger.getLogger(MyController.class);
 	static String charset = Const.GB2321;
 	static IntUtil util;
-	static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3); 
+	static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(300); 
 
    @FXML
    private Pane rightPane1;
@@ -110,6 +112,8 @@ public class MyController implements Initializable {
    @FXML
    private TextArea showText;
    @FXML
+   private TextArea rushBuyTips;
+   @FXML
    private TextField bagUseNum;
    @FXML
    private TextField textBuyNum;
@@ -123,6 +127,8 @@ public class MyController implements Initializable {
    private TextField textName;
    @FXML
    private TextField textPetName;
+   @FXML
+   private TextField textRushPurchase;
    
    @FXML
    private TableView bagTable;
@@ -170,6 +176,17 @@ public class MyController implements Initializable {
    private TableView tablePetBag;
    
    @FXML
+   private TableView rushBuyTable;
+   @FXML
+   private TableColumn rushBuyName;
+   @FXML
+   private TableColumn rushBuyPrice;
+   @FXML
+   private TableColumn rushBuyNum;
+   @FXML
+   private TableColumn rushBuyId;
+   
+   @FXML
    private Button testButton;
    
    
@@ -192,7 +209,7 @@ public class MyController implements Initializable {
    public void Login(ActionEvent event) throws Exception{
 	   String urlMain="http://s2.vvqz.com:8089/";
 	   util = new IntUtil(urlMain,charset,showText);
-	   Login login = new Login(util,"wxdwxd","5291314");
+	   Login login = new Login(util,"wxdwxd","5291314Li.");
 	   login.setMoney(textJB, textSJ, textYB, textName,textPetName,comboBoxMainSkill);
 	   Thread th = new Thread(login);
 	   th.start();  
@@ -231,19 +248,37 @@ public class MyController implements Initializable {
    public void bagUse(ActionEvent event){
 	   Res res = (Res)bagTable.getSelectionModel().getSelectedItem();
 	   String num = bagUseNum.getText();
-	   num.replace(" ", "");
-	   if(res == null){
-		   util.showText("请先选择物品！");
+	   num.trim();
+	   if(bagUse.getText().equals("停止")){
+		   fixedThreadPool.shutdownNow();
+		   fixedThreadPool = Executors.newFixedThreadPool(300);
+		   bagUse.setText("使用");
 	   }else{
-		   if(num == null ||num.equals("")){
-			   num = res.getNum();
-		   }
-		   for (int i =0;i<Integer.valueOf(num);i++) {
-			   fixedThreadPool.execute(new UseBag(res,util));
-		   }
+		   if(res == null){
+			   util.showText("请先选择物品！");
+		   }else{
+			   if(num == null ||num.equals("")){
+				   num = res.getNum();
+			   }
+			   bagUse.setText("停止");
+			   for (int i =0;i<Integer.valueOf(num);i++) {
+				   fixedThreadPool.execute(new UseBag(res,util));
+			   }
+		   } 
 	   }
    }
    
+   public void refreshRushBuy(ActionEvent event){
+	   GetRushBuy get = new GetRushBuy(util, rushBuyTable);
+	   Thread th = new Thread(get);
+	   th.start();
+   }
+   
+   public void showTips(ActionEvent event){
+	   ResRush res = (ResRush)rushBuyTable.getSelectionModel().getSelectedItem();
+	   String id = res.getRushBuyId();
+	   
+   }
    //刷新拍卖
    public void refreshSale (ActionEvent event) {
 	   GetSale get = new GetSale(util,tableSale);
@@ -262,6 +297,16 @@ public class MyController implements Initializable {
 		   Thread th = new Thread(get);
 		   th.start();
 	   }
+   }
+   
+   public void rushPurchase() {
+	   String text = textRushPurchase.getText();
+	   try{
+		   String[] all = text.split(";");
+	   }catch (Exception e) {
+		   util.showText("输入格式不正确！！正确格式:捏蛋,10,100;女神蛋,1,1;");
+	   }
+	   
    }
    
    public void refreshMC(ActionEvent event) {
@@ -464,5 +509,14 @@ public class MyController implements Initializable {
 	   List<ResPet> resMC = new ArrayList<ResPet>();
 	   resMC.add(new ResPet("","","",""));
 	   tableMC.setItems(FXCollections.observableArrayList(resMC));
+	   //抢购
+	   rushBuyName.setCellValueFactory(new PropertyValueFactory<>("rushBuyName"));
+	   rushBuyPrice.setCellValueFactory(new PropertyValueFactory<>("rushBuyPrice"));
+	   rushBuyNum.setCellValueFactory(new PropertyValueFactory<>("rushBuyNum"));
+	   rushBuyId.setCellValueFactory(new PropertyValueFactory<>("rushBuyId"));
+	   List<ResRush> resRush = new ArrayList<ResRush>();
+	   resRush.add(new ResRush("","","",""));
+	   rushBuyTable.setItems(FXCollections.observableArrayList(resRush));
+	   
    }
 }

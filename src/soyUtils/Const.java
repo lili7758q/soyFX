@@ -140,6 +140,20 @@ public class Const {
 	public static final String PUB_YB_LF = "元宝：";
 	public static final String PUB_YB_RT = "</li>";
 	
+	//抢购商城
+	public static final String RUSH_BUY_LF = "con_tab_4";
+	public static final String RUSH_BUY_RT = "/new_images/ui/smshop_06.jpg";
+	public static final String RUSH_BUY_LIST_LF = "/></td>";
+	public static final String RUSH_BUY_LIST_RT = "</tr><tr>";
+	public static final String RUSH_BUY_LIST_ID_LF = "bid=";
+	public static final String RUSH_BUY_LIST_ID_RT = ";price";
+	public static final String RUSH_BUY_LIST_NAME_LF = ";\">";
+	public static final String RUSH_BUY_LIST_NAME_RT = "</td>";
+	public static final String RUSH_BUY_LIST_PRICE_LF = "price=";
+	public static final String RUSH_BUY_LIST_PRICE_RT = ";\">";
+	public static final String RUSH_BUY_LIST_NUM_LF = "<td style=\"text-align:left\">";
+	public static final String RUSH_BUY_LIST_NUM_RT = "</td>";
+	
 	//普通地图
 	public static final String MAP_PT_XSJD = "1";
 	public static final String MAP_PT_YJSL = "2";
