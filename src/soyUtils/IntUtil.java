@@ -270,12 +270,15 @@ public class IntUtil {
 		  
 	  }
 	  
-	  public void showTips(String text){
+	  public void showTips(String text,boolean flag){
 		  Platform.runLater(new Runnable() {
 			    @Override
 			    public void run() {
+			    	if(flag){
+			    		rushBuyTips.clear();
+			    	}
 					  log.error(text);
-					  showText.appendText(text);
+					  rushBuyTips.appendText(text+"\n");
 			    }
 			});
 		  

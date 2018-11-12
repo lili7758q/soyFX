@@ -33,6 +33,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,6 +45,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import soyUtils.Const;
 import soyUtils.IntUtil;
@@ -57,6 +59,7 @@ import action.GetRushBuy;
 import action.GetSale;
 import action.Login;
 import action.MCGet;
+import action.ShowTips;
 import action.Test;
 import action.UseBag;
 
@@ -114,6 +117,8 @@ public class MyController implements Initializable {
    @FXML
    private TextArea rushBuyTips;
    @FXML
+   private TextArea rushBuyPreText;
+   @FXML
    private TextField bagUseNum;
    @FXML
    private TextField textBuyNum;
@@ -127,8 +132,7 @@ public class MyController implements Initializable {
    private TextField textName;
    @FXML
    private TextField textPetName;
-   @FXML
-   private TextField textRushPurchase;
+   
    
    @FXML
    private TableView bagTable;
@@ -203,6 +207,7 @@ public class MyController implements Initializable {
 	   initMap ();//设置打图
 	   setToolTips();//提示条
 	   initTable();//初始化Table
+	   addListener();//设置监听
    }
    
    //登陆
@@ -275,9 +280,9 @@ public class MyController implements Initializable {
    }
    
    public void showTips(ActionEvent event){
-	   ResRush res = (ResRush)rushBuyTable.getSelectionModel().getSelectedItem();
-	   String id = res.getRushBuyId();
-	   
+//	   ResRush res = (ResRush)rushBuyTable.getSelectionModel().getSelectedItem();
+//	   String id = res.getRushBuyId();
+	   System.out.println("selected");
    }
    //刷新拍卖
    public void refreshSale (ActionEvent event) {
@@ -299,10 +304,12 @@ public class MyController implements Initializable {
 	   }
    }
    
-   public void rushPurchase() {
-	   String text = textRushPurchase.getText();
+   public void rushBuyByPre(ActionEvent event) {
+	   String text = rushBuyPreText.getText();
 	   try{
-		   String[] all = text.split(";");
+		   String[] all = text.split(";\n");
+		   
+		   
 	   }catch (Exception e) {
 		   util.showText("输入格式不正确！！正确格式:捏蛋,10,100;女神蛋,1,1;");
 	   }
@@ -313,7 +320,6 @@ public class MyController implements Initializable {
 	   MCGet get = new MCGet(util,tableMC,"1");
 	   Thread th = new Thread(get);
 	   th.start();
-	   
    }
    
    public void testButton (ActionEvent event) {
@@ -517,6 +523,21 @@ public class MyController implements Initializable {
 	   List<ResRush> resRush = new ArrayList<ResRush>();
 	   resRush.add(new ResRush("","","",""));
 	   rushBuyTable.setItems(FXCollections.observableArrayList(resRush));
-	   
+   }
+   
+   //监听
+   public void addListener(){
+	   rushBuyTable.setOnMouseClicked(new EventHandler<MouseEvent>(){
+
+		@Override
+		public void handle(MouseEvent event) {
+			if (event.getClickCount() == 1) {
+				ResRush res = (ResRush)rushBuyTable.getSelectionModel().getSelectedItem();
+				String id = res.getRushBuyId();
+				ShowTips tips = new ShowTips(util,id,rushBuyTips);
+				Thread th = new Thread(tips);
+				th.start();
+            }
+		}});
    }
 }

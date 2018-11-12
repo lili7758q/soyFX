@@ -154,6 +154,14 @@ public class Const {
 	public static final String RUSH_BUY_LIST_NUM_LF = "<td style=\"text-align:left\">";
 	public static final String RUSH_BUY_LIST_NUM_RT = "</td>";
 	
+	//资料查询
+	public static final String ITEM_INFO_TIPS_NAME_LF = "<b>";
+	public static final String ITEM_INFO_TIPS_NAME_RT = "</b>";
+	public static final String ITEM_INFO_TIPS_SALE_LF = "<font color=#A8A7A4>";
+	public static final String ITEM_INFO_TIPS_SALE_RT = "</font><br/>";
+	public static final String ITEM_INFO_TIPS_TEXT_LF = "<font color=#FEFDFA>";
+	public static final String ITEM_INFO_TIPS_TEXT_RT = "</font>";		
+	
 	//普通地图
 	public static final String MAP_PT_XSJD = "1";
 	public static final String MAP_PT_YJSL = "2";
