@@ -58,6 +58,7 @@ public class IntUtil {
 	static Logger log = Logger.getLogger(IntUtil.class);
 	TextArea showText;
 	TextArea rushBuyTips;
+	TextArea buyRecordText;
 	
 	
 	public IntUtil (String urlMain,String charset,TextArea showText){
@@ -70,6 +71,11 @@ public class IntUtil {
 	public void setRushBuyTips(TextArea rushBuyTips){
 		this.rushBuyTips = rushBuyTips;
 	}
+	
+	public void setBuyRecord(TextArea buyRecordText){
+		this.buyRecordText = buyRecordText;
+	}
+	
 	public void setCharset (String charset){
 		this.CHARSET = charset;
 	}
@@ -279,6 +285,17 @@ public class IntUtil {
 			    	}
 					  log.error(text);
 					  rushBuyTips.appendText(text+"\n");
+			    }
+			});
+		  
+	  }
+	  
+	  public void addBuyRecord(String text){
+		  Platform.runLater(new Runnable() {
+			    @Override
+			    public void run() {
+					  log.error(text);
+					  buyRecordText.appendText(text+"\n");
 			    }
 			});
 		  

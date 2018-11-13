@@ -59,6 +59,7 @@ import action.GetRushBuy;
 import action.GetSale;
 import action.Login;
 import action.MCGet;
+import action.RushBuyPre;
 import action.ShowTips;
 import action.Test;
 import action.UseBag;
@@ -72,7 +73,8 @@ public class MyController implements Initializable {
 	static Logger log = Logger.getLogger(MyController.class);
 	static String charset = Const.GB2321;
 	static IntUtil util;
-	static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(300); 
+	static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(300);
+	static ExecutorService preBuyThreadPool = Executors.newFixedThreadPool(300); 
 
    @FXML
    private Pane rightPane1;
@@ -118,6 +120,8 @@ public class MyController implements Initializable {
    private TextArea rushBuyTips;
    @FXML
    private TextArea rushBuyPreText;
+   @FXML
+   private TextArea buyRecordText;
    @FXML
    private TextField bagUseNum;
    @FXML
@@ -307,9 +311,12 @@ public class MyController implements Initializable {
    public void rushBuyByPre(ActionEvent event) {
 	   String text = rushBuyPreText.getText();
 	   try{
+		   util.setBuyRecord(buyRecordText);
 		   String[] all = text.split(";\n");
-		   
-		   
+		   for(int i=0;i<all.length;i++){
+			   String m = all[i].replace(";", "");
+			   preBuyThreadPool.execute(new RushBuyPre(util, all[i])); 
+		   }
 	   }catch (Exception e) {
 		   util.showText("输入格式不正确！！正确格式:捏蛋,10,100;女神蛋,1,1;");
 	   }
