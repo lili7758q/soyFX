@@ -23,11 +23,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
-import Entity.Res;
-import Entity.ResPet;
-import Entity.ResRush;
-import Entity.ResSale;
-import Entity.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -38,6 +33,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -59,10 +55,17 @@ import action.GetRushBuy;
 import action.GetSale;
 import action.Login;
 import action.MCGet;
+import action.RefreshStore;
 import action.RushBuyPre;
 import action.ShowTips;
 import action.Test;
 import action.UseBag;
+import entity.Res;
+import entity.ResPet;
+import entity.ResRush;
+import entity.ResSale;
+import entity.Store;
+import entity.User;
 
 /** 
 * @author Soy 
@@ -195,6 +198,18 @@ public class MyController implements Initializable {
    private TableColumn rushBuyId;
    
    @FXML
+   private TableView storeTable;
+   @FXML
+   private TableColumn storeName;
+   @FXML
+   private TableColumn storeNum;
+   @FXML
+   private TableColumn storeId;
+   
+   @FXML
+   private PasswordField passwordStore;
+   
+   @FXML
    private Button testButton;
    
    
@@ -267,7 +282,7 @@ public class MyController implements Initializable {
 			   util.showText("请先选择物品！");
 		   }else{
 			   if(num == null ||num.equals("")){
-				   num = res.getNum();
+				   num = res.getNum()+"";
 			   }
 			   bagUse.setText("停止");
 			   for (int i =0;i<Integer.valueOf(num);i++) {
@@ -283,11 +298,6 @@ public class MyController implements Initializable {
 	   th.start();
    }
    
-   public void showTips(ActionEvent event){
-//	   ResRush res = (ResRush)rushBuyTable.getSelectionModel().getSelectedItem();
-//	   String id = res.getRushBuyId();
-	   System.out.println("selected");
-   }
    //刷新拍卖
    public void refreshSale (ActionEvent event) {
 	   GetSale get = new GetSale(util,tableSale);
@@ -325,6 +335,19 @@ public class MyController implements Initializable {
    
    public void refreshMC(ActionEvent event) {
 	   MCGet get = new MCGet(util,tableMC,"1");
+	   Thread th = new Thread(get);
+	   th.start();
+   }
+   
+   
+   /**
+    * 仓库相关
+    * */
+   
+   //刷新仓库
+   public void refreshStore(ActionEvent event) {
+	   String password = passwordStore.getText();
+	   RefreshStore get = new RefreshStore(util, password,storeTable);
 	   Thread th = new Thread(get);
 	   th.start();
    }
@@ -504,7 +527,7 @@ public class MyController implements Initializable {
 	   bagNum.setCellValueFactory(new PropertyValueFactory<>("num"));
 	   bagSort.setCellValueFactory(new PropertyValueFactory<>("bagSort"));
 	   List<Res> res = new ArrayList<Res>();
-	   res.add(new Res(" "," "," "," "));
+	   res.add(new Res(" "," ",0," "));
 	   bagTable.setItems(FXCollections.observableArrayList(res));
 	   //交易所
 	   saleId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -530,6 +553,13 @@ public class MyController implements Initializable {
 	   List<ResRush> resRush = new ArrayList<ResRush>();
 	   resRush.add(new ResRush("","","",""));
 	   rushBuyTable.setItems(FXCollections.observableArrayList(resRush));
+	   //仓库
+	   storeName.setCellValueFactory(new PropertyValueFactory<>("storeName"));
+	   storeNum.setCellValueFactory(new PropertyValueFactory<>("storeNum"));
+	   storeId.setCellValueFactory(new PropertyValueFactory<>("storeId"));
+	   List<Store> store = new ArrayList<Store>();
+	   store.add(new Store("",0,""));
+	   storeTable.setItems(FXCollections.observableArrayList(store));
    }
    
    //监听

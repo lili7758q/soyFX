@@ -1,5 +1,6 @@
-package Entity;
+package entity;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /** 
@@ -10,13 +11,13 @@ import javafx.beans.property.SimpleStringProperty;
 public class Res {
 	private final SimpleStringProperty id;
 	private final SimpleStringProperty name;
-	private final SimpleStringProperty num;
+	private final SimpleIntegerProperty num;
 	private final SimpleStringProperty bagSort;
 	
-	public Res(String id,String name,String num,String bagSort ){
+	public Res(String id,String name,int num,String bagSort ){
 		this.id = new SimpleStringProperty(id);
 		this.name = new SimpleStringProperty(name);
-		this.num = new SimpleStringProperty(num);
+		this.num = new SimpleIntegerProperty(num);
 		this.bagSort = new SimpleStringProperty(bagSort);
 	}
 	
@@ -26,7 +27,7 @@ public class Res {
 	public String getName(){
 		return name.get();
 	}
-	public String getNum(){
+	public int getNum(){
 		return num.get();
 	}
 	public String getBagSort(){
@@ -42,7 +43,7 @@ public class Res {
 	public void setName (String name){
 		this.name.set(name);
 	}
-	public void setNum (String num){
+	public void setNum (int num){
 		this.num.set(num);
 	}
 

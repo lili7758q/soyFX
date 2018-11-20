@@ -2,7 +2,7 @@ package action;
 
 import java.util.Map;
 
-import Entity.Res;
+import entity.Res;
 import javafx.concurrent.Task;
 import soyUtils.IntUtil;
 

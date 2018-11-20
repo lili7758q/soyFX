@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import Entity.Res;
+import entity.Res;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
@@ -52,7 +52,7 @@ public class GetBag extends Task{
 				String name = ut.getTag(Const.NAME_LEFT, Const.NAME_RIGHT, t) ;
 				String num = ut.getTag(Const.NUM_LEFT, Const.NUM_RIGHT, t);
 				String bagSort = ut.getTag(Const.SORT_LEFT, Const.SORT_RIGHT, t);
-				listBag.add(new Res(id,name,num,bagSort));
+				listBag.add(new Res(id,name,Integer.parseInt(num),bagSort));
 			}
 			Platform.runLater(new Runnable() {
 			    @Override

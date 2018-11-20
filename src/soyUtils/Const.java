@@ -154,6 +154,20 @@ public class Const {
 	public static final String RUSH_BUY_LIST_NUM_LF = "<td style=\"text-align:left\">";
 	public static final String RUSH_BUY_LIST_NUM_RT = "</td>";
 	
+	//仓库
+	public static final String STORE_TABLE_LF = "<table class=\"tit01\" id=\"shoplist\">";
+	public static final String STORE_TABLE_RT = "</table>";
+	public static final String STORE_TABLE_LIST_LF = "<tr>";
+	public static final String STORE_TABLE_LIST_RT = "</tr>";
+	public static final String STORE_TABLE_NAME_LF = "copyWord('";
+	public static final String STORE_TABLE_NAME_RT = "');sel(this);";
+	public static final String STORE_TABLE_ID_LF = "bid=";
+	public static final String STORE_TABLE_ID_RT = ";price=";
+	public static final String STORE_TABLE_NUM_LF = "id=\"s";
+	public static final String STORE_TABLE_NUM_RT = "</td>";
+
+
+	
 	//资料查询
 	public static final String ITEM_INFO_TIPS_NAME_LF = "<b>";
 	public static final String ITEM_INFO_TIPS_NAME_RT = "</b>";
@@ -215,5 +229,13 @@ public class Const {
 	public static final String PET_MAIN_SKILLLIST_RT = "</div>";
 	public static final String PET_MAIN_SKILL_LF = "copyWord('";
 	public static final String PET_MAIN_SKILL_RT = "');";
+	
+	//仓库密码框
+	public static final String STORE_PASSWORD_FLAG = "onclick=\"login()\"";
+	
+	
+	//各个URL
+	public static final String URL_STORE_EXT_PASSWORD = "function/ext_Base.php";
+	public static final String URL_STORE = "function/Base_Mod.php";
 	
 }

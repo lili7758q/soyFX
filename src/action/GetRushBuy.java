@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import Entity.ResRush;
+import entity.ResRush;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
@@ -39,23 +39,23 @@ public class GetRushBuy extends Task{
 			util.showText("刷新商城失败！");
 		}else{
 			String bagHtml = (String) retMap.get("body");
-//			if(bagHtml.indexOf("暂时没有限时抢购的商品")!= -1){
-//				util.showText("抢购活动尚未开启！！");
-//				return null;
-//			}
-			try{
-				File file = new File("C:\\Users\\Strong\\Desktop\\抢购商城.txt");
-				FileReader reader = new FileReader(file);
-				BufferedReader bf = new BufferedReader(reader);
-				StringBuffer sb=new StringBuffer();
-				String rt = "";
-				while((rt=bf.readLine())!=null){
-					sb.append(rt);
-				}
-				bagHtml = sb.toString();
-			}catch (Exception e){
-				e.printStackTrace();
+			if(bagHtml.indexOf("暂时没有限时抢购的商品")!= -1){
+				util.showText("抢购活动尚未开启！！");
+				return null;
 			}
+//			try{
+//				File file = new File("C:\\Users\\Strong\\Desktop\\抢购商城.txt");
+//				FileReader reader = new FileReader(file);
+//				BufferedReader bf = new BufferedReader(reader);
+//				StringBuffer sb=new StringBuffer();
+//				String rt = "";
+//				while((rt=bf.readLine())!=null){
+//					sb.append(rt);
+//				}
+//				bagHtml = sb.toString();
+//			}catch (Exception e){
+//				e.printStackTrace();
+//			}
 			
 			List<ResRush> listRush = new ArrayList<ResRush>();
 			SoyUtils ut = new SoyUtils();

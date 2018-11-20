@@ -79,6 +79,10 @@ public class IntUtil {
 	public void setCharset (String charset){
 		this.CHARSET = charset;
 	}
+	
+	public String getCharset(){
+		return CHARSET;
+	}
 	/** 
 	* @author Soy 
 	* @date 2017年11月16日 下午7:06:02 
