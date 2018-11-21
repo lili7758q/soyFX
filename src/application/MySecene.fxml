@@ -246,7 +246,7 @@
                                             <TextField editable="false" layoutX="289.0" layoutY="184.0" prefHeight="26.0" prefWidth="50.0" styleClass="border-set, background-white, test-center" text="密 码:" />
                                             <PasswordField id="password" fx:id="passwordStore" layoutX="352.0" layoutY="184.0" prefHeight="26.0" prefWidth="114.0" text="5291314" />
                                             <Button id="" layoutX="14.0" layoutY="150.0" mnemonicParsing="false" onAction="#refreshStore" prefHeight="26.0" prefWidth="66.0" text="刷新" />
-                                            <Button id="" fx:id="getStore" layoutX="16.0" layoutY="114.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="单个取" />
+                                            <Button id="" layoutX="14.0" layoutY="184.0" mnemonicParsing="false" onAction="#getStoreSingle" prefHeight="26.0" prefWidth="66.0" text="单个取" />
                                             <TextField editable="false" layoutX="20.0" layoutY="2.0" prefHeight="26.0" prefWidth="55.0" styleClass="border-set, background-white, test-center" text="仓 库" />
                                             <ComboBox layoutY="34.0" prefWidth="66.0" AnchorPane.leftAnchor="14.0">
                                               <items>
@@ -257,7 +257,9 @@
                                                 </FXCollections>
                                               </items>
                                             </ComboBox>
-                                            <Button id="" fx:id="getStoreAll" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="一键取" />
+                                            <Button id="" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" onAction="#getStoreAll" prefHeight="26.0" prefWidth="66.0" text="一键取" />
+                                            <TextField id="bagUseNum" fx:id="storeSingleGetNum" layoutX="168.0" layoutY="184.0" prefHeight="26.0" prefWidth="78.0" />
+                                            <TextField editable="false" layoutX="107.0" layoutY="184.0" prefHeight="26.0" prefWidth="61.0" styleClass="border-set, background-white, test-center" text="数量:" />
                                           </children>
                                         </AnchorPane>
                                       </content>

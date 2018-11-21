@@ -58,6 +58,7 @@ import action.MCGet;
 import action.RefreshStore;
 import action.RushBuyPre;
 import action.ShowTips;
+import action.StoreGet;
 import action.Test;
 import action.UseBag;
 import entity.Res;
@@ -139,7 +140,8 @@ public class MyController implements Initializable {
    private TextField textName;
    @FXML
    private TextField textPetName;
-   
+   @FXML
+   private TextField storeSingleGetNum;
    
    @FXML
    private TableView bagTable;
@@ -346,10 +348,46 @@ public class MyController implements Initializable {
    
    //刷新仓库
    public void refreshStore(ActionEvent event) {
+	   refreshStore();
+   }
+   
+   public void getStoreSingle(ActionEvent event){
+	   Store store = (Store) storeTable.getSelectionModel().getSelectedItem();
+	   if(store == null){
+		   util.showText("请选择一个物品！");
+		   return ;
+	   }
+	   StoreGet get = new StoreGet(util);
+	   String num = storeSingleGetNum.getText();
+	   int getNum = 0;
+	   boolean flag = true;
+	   if(num.length()>0){
+		   for (int i = 0; i < num.length(); i++){
+			   if (!Character.isDigit(num.charAt(i))){
+				   flag = false;
+				   break;
+			   }
+		   }  
+		   if(flag){
+			   getNum = Integer.parseInt(num);
+		   }
+	   }
+	   get.setSingleGet(store, getNum);
 	   String password = passwordStore.getText();
-	   RefreshStore get = new RefreshStore(util, password,storeTable);
+	   get.setTable(password, storeTable);
 	   Thread th = new Thread(get);
 	   th.start();
+   }
+   
+   public void getStoreAll(ActionEvent event){
+	   List list = storeTable.getItems();
+	   StoreGet get = new StoreGet(util);
+	   get.setListGet(list, true);
+	   String password = passwordStore.getText();
+	   get.setTable(password, storeTable);
+	   Thread th = new Thread(get);
+	   th.start();
+	   
    }
    
    public void testButton (ActionEvent event) {
@@ -362,6 +400,13 @@ public class MyController implements Initializable {
 		   testButton.setText("开始");
 		   ts.exit = true;
 	   }
+   }
+   
+   private void refreshStore(){
+	   String password = passwordStore.getText();
+	   RefreshStore get = new RefreshStore(util, password,storeTable);
+	   Thread th = new Thread(get);
+	   th.start();
    }
    
    public boolean changeButton (Button bt) {
